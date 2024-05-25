@@ -19,7 +19,7 @@ title: ZoZou # the main title
 tagline: 一个普普通通的人 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  不知道写什么
+  哪里可以显示这个？
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -105,7 +105,7 @@ social_preview_image: # string, local or CORS resources
 # boolean type, the global switch for TOC in posts.
 toc: true
 
-comments: giscus
+comments:
   # Global switch for the post comment system. Keeping it empty means disabled.
   provider: # [disqus | utterances | giscus]
   # The provider options are as follows:
