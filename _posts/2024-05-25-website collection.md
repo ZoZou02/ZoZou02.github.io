@@ -12,4 +12,4 @@ comments: true
 
 ## 娱乐类
 
-超鱿型的穿搭：[text](https://splacoordmaker.app/)
+[超鱿型的穿搭](https://splacoordmaker.app/)
