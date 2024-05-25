@@ -7,16 +7,15 @@ author: ZoZou
 comments: true
 ---
 
+## 🔧工具类
 
-## 工具类
-
-⚙[ChatGPT](https://chatgpt.com/)
-📏[Icon生成器 realfavicongenerator](https://realfavicongenerator.net/)
-🔧[icon自定义下载 icons8](https://icons8.com/)
-🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
-🐚[神奇海螺试验场](https://lab.magiconch.com/)
+- ⚙[ChatGPT](https://chatgpt.com/)
+- 📏[Icon生成器 realfavicongenerator](https://realfavicongenerator.net/)
+- 🔧[icon自定义下载 icons8](https://icons8.com/)
+- 🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
+- 🐚[神奇海螺试验场](https://lab.magiconch.com/)
 
 
-## 娱乐类
+## 🎮娱乐类
 
-🦑[超鱿型的穿搭 splacoordmaker](https://splacoordmaker.app/)
+- 🦑[超鱿型的穿搭 splacoordmaker](https://splacoordmaker.app/)
