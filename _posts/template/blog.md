@@ -1,11 +1,14 @@
 ---
 title: blog
-description: Examples of text, typography, math equations, diagrams, flowcharts, pictures, videos, and more.
+description: 描述
 author: ZoZou
-date: {{date}} {{time}} +0800
-categories:[website,自我]
-tags:[blog,diary]
-pin: false
-math: false
-mermaid: false
+date: "{{date}} {{time}} +0800"
+categories:
+  - 自我
+tags:
+  - blog
+  - diary
+pin: true
+math: true
+mermaid: true
 ---
