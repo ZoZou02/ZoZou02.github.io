@@ -4,7 +4,6 @@ date: 2024-05-25 18:00:00 +0800
 categories: [website]
 tags: [cn,website,collection]
 author: ZoZou
-comments: true
 ---
 
 ## 🔧工具类
@@ -15,7 +14,6 @@ comments: true
 - 🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
 - 🐚[神奇海螺试验场](https://lab.magiconch.com/)
 
-
 ## 🎮娱乐类
 
-- 🦑[超鱿型的穿搭 splacoordmaker](https://splacoordmaker.app/)
+- 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
