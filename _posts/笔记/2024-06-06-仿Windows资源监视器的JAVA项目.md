@@ -1,5 +1,5 @@
 ---
-title: 模仿Windows资源监视器的JAVA项目
+title: 仿Windows资源监视器的JAVA项目
 description: 计算机操作系统课程设计项目
 author: ZoZou
 date: 2024-06-06 18:10 +0800
