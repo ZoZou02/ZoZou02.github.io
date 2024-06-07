@@ -801,3 +801,4 @@ import java.awt.event.KeyEvent;
 github: https://github.com/ZoZou02/CPUmonitor.git
 gitee: https://gitee.com/zozou/CPUmonitor.git
 ![](/src/img/test.png)
+![](src/img/Pasted%20image%2020240607145431.png)
