@@ -800,4 +800,4 @@ import java.awt.event.KeyEvent;
 喜欢项目的话记得给我点个🌟！谢谢！
 github: https://github.com/ZoZou02/CPUmonitor.git
 gitee: https://gitee.com/zozou/CPUmonitor.git
-![](Pasted%20image%2020240607114230.png)
+![](/src/img/test.png)
