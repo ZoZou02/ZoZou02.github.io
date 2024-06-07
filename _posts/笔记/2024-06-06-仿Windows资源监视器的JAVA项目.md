@@ -94,8 +94,8 @@ BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInpu
 String line;  
 for (int i = 0; i < _MAX_DATA_POINTS_; i++) {  
     line = reader.readLine();  
-    if (line != null && i >= 3) {                    //前三行没有实际数据        processList[i - 3][0] = line.substring(0, 24);       //名称        processList[i - 3][1] = line.substring(26, 34);      //PID  
-        processList[i - 3][2] = line.substring(35, 43);      //会话        processList[i - 3][3] = line.substring(62, 63);      //CPU  
+    if (line != null && i >= 3) {                    //前三行没有实际数据        
+        processList[i - 3][2] = line.substring(35, 43);      //会话         
         processList[i - 3][4] = line.substring(63, 76);       //内存占用    }  
 }  
 process.destroy();  //结束进程
@@ -107,14 +107,14 @@ process.destroy();  //结束进程
 ```java
 //处理数据转为坐标  
 for (int i = 0; i < _MAX_DATA_POINTS_; i++) {  
-    int x = marginX + i * ((_WIDTH_ - 100) / (_MAX_DATA_POINTS_ - 1));  
-    int y = (_HEIGHT_ / 2 - 20 - (int) cpuTotalData[i]);  
-    //防止图像超出矩形范围    
-    if (y < marginY) {  
-        y = marginY;  
-    }  
-    xTotalPoints[i] = x;  
-    yTotalPoints[i] = y;  
+   int x = marginX + i * ((_WIDTH_ - 100) / (_MAX_DATA_POINTS_ - 1));  
+   int y = (_HEIGHT_ / 2 - 20 - (int) cpuTotalData[i]);  
+   //防止图像超出矩形范围    
+   if (y < marginY) {  
+       y = marginY;  
+   }  
+   xTotalPoints[i] = x;  
+   yTotalPoints[i] = y;  
 }
 //绘制折线图
 g2.drawPolyline(xTotalPoints, yTotalPoints, _MAX_DATA_POINTS_ + 2);
