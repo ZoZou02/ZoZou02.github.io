@@ -17,12 +17,11 @@ number headings: auto, first-level 1, max 6, start-at 1, _.1.1.
 # CPU参数监控程序
 ## 1. 简介
 本程序使用Java开发，调用oshi库和JMX库获取CPU信息，通过提供直观的监测数据和图表，用户可以更加方便地了解系统运行情况。
-
-开发的原因主要就是操作系统课设要求，别管那么多为什么用Java了哈哈哈，为做操作系统课设的大家提供参考。
 ## 2. 功能分析与设计
 ### 2.1. 功能分析
 CPU监控工具主要都是系统内置的，比如Windows的任务管理器、资源监视器、macOS活动监视器。本项目由于运行的平台为Windows，故选择资源监视器和任务管理器进行分析和参考。
-
+![资源监视器](src/img/Pasted%20image%2020240607151316.png)
+![任务管理器](src/img/Pasted%20image%2020240607151411.png)
 由图可以看出资源监视器分为概述、CPU、内存、磁盘和网络五个板块，其中最主要的就是CPU相关的板块。在概述界面中列出了CPU的使用率、最大频率，并且在右侧用折线图的方式直观地展现了CPU使用率的变化，左侧则将进程列表展现了出来，包括进程名称、PID、描述、状态、线程数、CPU、平均CPU占比。在CPU界面中分别列出了进程列表、服务列表，还有每个逻辑处理器的使用率折线图，当用户点击选中进程时，还会将关联的句柄和关联的模块一一列举出来。
 
 任务管理器对于CPU的部分侧重点比较不同，且信息比较简便，主要就是CPU的型号、利用率、速度、进程、线程、句柄、运行时间等信息的显示，也有像资源管理器的利用率折线图。
@@ -791,14 +790,14 @@ import java.awt.event.KeyEvent;
 ## 4. 效果展示
 ### 4.1. 概述页面
 概述页面实现了CPU硬件信息的显示，并且实时更新了CPU的使用率、线程等参数信息，绘制了动态的CPU利用率折线图。窗口布局将进程页面与概述页面进行了整合，其余页面通过JtabledPane进行切换。
-
+![概述页面](src/img/Pasted%20image%2020240607151532.png)
 ### 4.2. CPU页面
-
+![](src/img/Pasted%20image%2020240607151605.png)
+![](src/img/Pasted%20image%2020240607151623.png)
 ### 4.3. 进程页面
 进程列表将进程的名称、Pid等信息，通过点击表头进行进程的排序，点击一次为从小到大排序，再次点击则变为从大到小排序。右键选择点击进程，会弹出“结束进程”菜单，点击“结束进程”则会将选中的当前进程结束（但是由于进程每秒会进行刷新，选中会比较困难，但其实每次点击右键弹出“结束进程”的时候已经获取了之前所选中的进程了，懒得解决这个问题了哈哈哈）。
+![](src/img/Pasted%20image%2020240607151643.png)
 ## 5. 源代码获取
 喜欢项目的话记得给我点个🌟！谢谢！
-- GitHub: (https://github.com/ZoZou02/CPUmonitor.git)
-- Gitee: (https://gitee.com/zozou/CPUmonitor.git)
-![](/src/img/test.png)
-![](src/img/Pasted%20image%2020240607145431.png)
+- GitHub: [https://github.com/ZoZou02/CPUmonitor.git](https://github.com/ZoZou02/CPUmonitor.git)
+- Gitee: [https://github.com/ZoZou02/CPUmonitor.git](https://gitee.com/zozou/CPUmonitor.git)
