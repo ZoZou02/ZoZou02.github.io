@@ -39,6 +39,13 @@ CPU监控工具主要都是系统内置的，比如Windows的任务管理器、�
 |       | 显示各个CPU利用率折线图 | 将每个逻辑处理器的利用率以折线图显示    |
 | 进程页面  | 显示进程列表        | 显示当前正在运行的进程信息         |
 |       | 选择并结束进程       | 用户可以结束选中的进程           |
+
+| Company                      | Contact          | Country |
+| :--------------------------- | :--------------- | ------: |
+| Alfreds Futterkiste          | Maria Anders     | Germany |
+| Island Trading               | Helen Bennett    |      UK |
+| Magazzini Alimentari Riuniti | Giovanni Rovelli |   Italy |
+
 ### 2.3. 参数获取
 概述模块的所需要获取的CPU参数有系统名称、CPU型号、CPU内核数、CPU逻辑处理器数、CPU总利用率、运行时间、进程数、线程数、CPU频率。本程序获取 CPU利用率要通过JMX库获取到的系统信息调用.getCpuLoad()方法。其他硬件信息和参数信息就由oshi库中的方法进行获取，具体程序如下：
 ```java
