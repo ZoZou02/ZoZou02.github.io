@@ -42,7 +42,7 @@ CPU监控工具主要都是系统内置的，比如Windows的任务管理器、�
 |       | 选择并结束进程       | 用户可以结束选中的进程           |
 ### 2.3. 参数获取
 概述模块的所需要获取的CPU参数有系统名称、CPU型号、CPU内核数、CPU逻辑处理器数、CPU总利用率、运行时间、进程数、线程数、CPU频率。本程序获取 CPU利用率要通过JMX库获取到的系统信息调用.getCpuLoad()方法。其他硬件信息和参数信息就由oshi库中的方法进行获取，具体程序如下：
-```
+```java
 //构造函数，计时器每秒刷新一次，与任务管理器一致  
 public CPUMonitorOverview() {  
     bean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean(); //获取操作系统的相关信息  
@@ -62,7 +62,7 @@ public CPUMonitorOverview() {
 }
 ```
 CPU模块需要获取每个CPU的利用率数据，与概述模块相同，使用oshi库获得CPU信息后，使用.getProcessorCpuLoadBetweenTicks()方法就能获得一个double型的数组存储了每个CPU的利用率。程序代码如下：
-```
+```java
 //构造函数，计时器每秒刷新一次，与任务管理器一致  
 public CPUMonitorList() {  
     bean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();  
@@ -83,7 +83,7 @@ public CPUMonitorList() {
 }
 ```
 进程模块需要获取进程列表，主要的信息有：名称、PID、会话名、CPU、内存使用。进程信息获取采用系统命令的方式进行，通过“tasklist”命令即可获取进程信息。使用ProcessBuilder创建一个命令进程，然后通过BufferReader读取命令的输出，谨记最后一定要使用.destory()来结束进程，不然会占用较多资源。获取进程信息程序代码如下：
-```
+```java
 ProcessBuilder processBuilder = new ProcessBuilder("tasklist");  
 Process process = processBuilder.start();  
   
@@ -102,7 +102,7 @@ process.destroy();  //结束进程
 本程序主要使用Swing框架进行界面的显示，其中三个模块所需要的组件包括JPanel, JFrame, JTable，其中对于利用率折线图的绘制需要使用Graphics2D类进行绘制。
 
 在概述模块中，需要显示CPU的硬件信息和利用率、线程等参数信息，还需要根据获得的利用率进行折线图的绘制，对于折线图采用多变形的方法.drawPolyline()来绘制。绘制图形的程序代码如下：
-```
+```java
 //处理数据转为坐标  
 for (int i = 0; i < _MAX_DATA_POINTS_; i++) {  
     int x = marginX + i * ((_WIDTH_ - 100) / (_MAX_DATA_POINTS_ - 1));  
@@ -119,7 +119,7 @@ g2.drawPolyline(xTotalPoints, yTotalPoints, _MAX_DATA_POINTS_ + 2);
 ```
 通过绘制多边矩形来实现折线图的效果，因此坐标需要多加两个顶点坐标。CPU模块类似，就不重复说明。对于进程模块，需要获取进程信息并显示进程表格。生成进程表格程序代码如下：
 
-```
+```java
 //创建表格
 columns = new String[]{"名称", "PID", "会话名", "CPU", "内存使用"};  
 model = new DefaultTableModel(processList, columns);  
@@ -136,7 +136,7 @@ table.setRowSorter(sorter);
 ```
 ## 3. 系统实现
 ### 3.1. 概述页面
-```
+```java
 import com.sun.management.OperatingSystemMXBean;  
 import oshi.SystemInfo;  
 import oshi.hardware.CentralProcessor;  
@@ -308,7 +308,7 @@ import java.lang.management.ManagementFactory;
 
 在获取CPU利用率的时候选择了om.sun.management中的OperatingSystemMXBean接口，使用getCpuLoad()方法获取Cpu使用率，不使用oshi库中的方法是因为oshi库中获取的利用率的信息效率较低，且需要二次处理才能使用。
 ### 3.2. CPU页面
-```
+```java
 import com.sun.management.OperatingSystemMXBean;  
 import oshi.SystemInfo;  
 import oshi.hardware.CentralProcessor;  
@@ -510,7 +510,7 @@ import java.lang.management.ManagementFactory;
 ```
 （与概述页面相似）
 ### 3.3. 进程页面
-```
+```java
 import javax.swing.*;  
 import javax.swing.table.DefaultTableModel;  
 import javax.swing.table.TableModel;  
@@ -735,7 +735,7 @@ import java.util.Comparator;
 这里获取进程信息使用了命令行tasklist获取，使用oshi实时获取进程信息占用过高，运行速度极低。
 ### 3.4. 主函数
 
-```
+```java
 import javax.swing.*;  
 import java.awt.*;  
 import java.awt.event.KeyEvent;  
@@ -798,7 +798,7 @@ import java.awt.event.KeyEvent;
 进程列表将进程的名称、Pid等信息，通过点击表头进行进程的排序，点击一次为从小到大排序，再次点击则变为从大到小排序。右键选择点击进程，会弹出“结束进程”菜单，点击“结束进程”则会将选中的当前进程结束（但是由于进程每秒会进行刷新，选中会比较困难，但其实每次点击右键弹出“结束进程”的时候已经获取了之前所选中的进程了，懒得解决这个问题了哈哈哈）。
 ## 5. 源代码获取
 喜欢项目的话记得给我点个🌟！谢谢！
-github: https://github.com/ZoZou02/CPUmonitor.git
-gitee: https://gitee.com/zozou/CPUmonitor.git
+- GitHub: (https://github.com/ZoZou02/CPUmonitor.git)
+- Gitee: (https://gitee.com/zozou/CPUmonitor.git)
 ![](/src/img/test.png)
 ![](src/img/Pasted%20image%2020240607145431.png)

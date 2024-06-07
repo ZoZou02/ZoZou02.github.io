@@ -12,7 +12,7 @@ author: ZoZou
 pin: true
 ---
 
-## 🔧工具类
+## 1. 🔧工具类
 
 - 🤖[ChatGPT](https://chatgpt.com/)
 - 📏[icon生成器 realfavicongenerator](https://realfavicongenerator.net/)
@@ -20,6 +20,6 @@ pin: true
 - 🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
 - 🐚[神奇海螺试验场](https://lab.magiconch.com/)
 
-## 🎮娱乐类
+## 2. 🎮娱乐类
 
 - 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
