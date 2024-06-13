@@ -19,6 +19,7 @@ pin: true
 - 🧩[icon自定义下载 icons8](https://icons8.com/)
 - 🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
 - 🐚[神奇海螺试验场](https://lab.magiconch.com/)
+- 📑[pdf在线工具集 ilovepdf](https://www.ilovepdf.com/zh-cn)
 
 ## 2. 🎮娱乐类
 
