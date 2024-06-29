@@ -16,7 +16,6 @@ pin: true
 
 - 🤖[ChatGPT](https://chatgpt.com/)
 - 📏[icon生成器 realfavicongenerator](https://realfavicongenerator.net/)
-- 🧩[icon自定义下载 icons8](https://icons8.com/)
 - 🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
 - 🐚[神奇海螺试验场](https://lab.magiconch.com/)
 - 📑[PDF在线工具集 ilovepdf](https://www.ilovepdf.com/zh-cn)
@@ -25,3 +24,11 @@ pin: true
 ## 2. 🎮娱乐类
 
 - 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
+- 🥁[太鼓达人 Taiko web](https://cjdgrevival.com/)
+
+## 3. 🎨资源素材
+
+- 🧩[icon自定义下载 icons8](https://icons8.com/)
+- 🖌️[PS免费笔刷](https://myphotoshopbrushes.com/)
+- 😀[emoji大全1](https://emoji6.com/emojiall/)
+- 😁[emoji大全2](https://www.emojiall.com/)
