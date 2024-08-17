@@ -20,6 +20,7 @@ pin: true
 - 🐚[神奇海螺试验场](https://lab.magiconch.com/)
 - 📑[PDF在线工具集 ilovepdf](https://www.ilovepdf.com/zh-cn)
 - 🔣[latex公式编辑器](https://www.latexlive.com/)
+- 🎛[miku工具集](https://tools.miku.ac/)
 
 ## 2. 🎮娱乐类
 
