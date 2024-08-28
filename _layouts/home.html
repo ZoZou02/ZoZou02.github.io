@@ -23,6 +23,9 @@ refactor: true
   {% assign pinned_num = 0 %}
 {% endif %}
 
+{% include sakana.html %}
+
+
 <!-- Get default posts -->
 
 {% assign default_beg = offset | minus: pinned.size %}
