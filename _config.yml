@@ -14,12 +14,12 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: ZoZou # the main title
+title: 走路菇研究协会 # the main title
 
 tagline: 赛博搬砖工 # it will display as the sub-title
 
-description: >- # used by seo meta and the atom feed
-  哪里可以显示这个？
+description: >-
+  ZoZou的个人主页
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -29,7 +29,7 @@ github:
   username: ZoZou02 # change to your github username
 
 twitter:
-  username: ZoZou02 # change to your twitter username
+  username: zozou_02 # change to your twitter username
 
 social:
   # Change to your full name.
