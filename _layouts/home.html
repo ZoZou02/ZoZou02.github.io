@@ -11,8 +11,6 @@ refactor: true
 {% assign posts = '' | split: '' %}
 
 <!-- Get pinned posts -->
-<!-- {% include sakana.html %} -->
-
 
 {% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
 {% assign pinned_num = pinned.size | minus: offset %}
