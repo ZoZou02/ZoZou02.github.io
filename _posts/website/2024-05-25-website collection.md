@@ -16,6 +16,7 @@ pin: true
 
 - 🤖[ChatGPT](https://chatgpt.com/)
 - 📏[icon生成器 realfavicongenerator](https://realfavicongenerator.net/)
+- 📐[网页icon fontawesome](https://fontawesome.com/)
 - 🎴[福音戰士標題生成器](https://lab.magiconch.com/eva-title/)
 - 🐚[神奇海螺试验场](https://lab.magiconch.com/)
 - 📑[PDF在线工具集 ilovepdf](https://www.ilovepdf.com/zh-cn)
