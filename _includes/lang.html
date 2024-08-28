@@ -1,3 +1,14 @@
+{% comment %}
+  Detect appearance language and return it through variable "lang"
+{% endcomment %}
+{% if site.data.locales[page.lang] %}
+  {% assign lang = page.lang %}
+{% elsif site.data.locales[site.lang] %}
+  {% assign lang = site.lang %}
+{% else %}
+  {% assign lang = 'en' %}
+{% endif %}
+
 <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css -->
 <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js -->
 <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.css -->
@@ -11,8 +22,8 @@
 style="
 z-index: 1001;
 position: fixed;
-bottom: 10px;
-right: 0;"></div>
+bottom: 0px;
+right: 150px;"></div>
 <script>
   function initSakanaWidget() {
     // new SakanaWidget().mount('#sakana-widget');
@@ -20,7 +31,7 @@ right: 0;"></div>
     const github = SakanaWidget.getCharacter('chisato');
 github.image = `https://zozou02.github.io/assets/img/favicons/redwhilte512.gif`;
 SakanaWidget.registerCharacter('github', github);
-new SakanaWidget({ character: 'github' }).mount('#sakana-widget');
+new SakanaWidget({ character: 'github', rod: false }).mount('#sakana-widget');
   }
 </script>
 <script
