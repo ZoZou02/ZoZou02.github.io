@@ -3,10 +3,12 @@
 {% endcomment %}
 {% if site.data.locales[page.lang] %}
   {% assign lang = page.lang %}
+  {% include sakana.html %}
 {% elsif site.data.locales[site.lang] %}
   {% assign lang = site.lang %}
+  {% include sakana.html %}
 {% else %}
   {% assign lang = 'en' %}
+  {% include sakana.html %}
 {% endif %}
 
-{% include sakana.html %}
