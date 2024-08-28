@@ -3,34 +3,12 @@
 {% endcomment %}
 {% if site.data.locales[page.lang] %}
   {% assign lang = page.lang %}
+  
 {% elsif site.data.locales[site.lang] %}
   {% assign lang = site.lang %}
+  
 {% else %}
   {% assign lang = 'en' %}
+  
 {% endif %}
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css"
-/>
-<div id="sakana-widget" 
-style="
-z-index: 1001;
-position: fixed;
-bottom: 0px;
-right: 150px;"></div>
-<script>
-  function initSakanaWidget() {
-    // new SakanaWidget().mount('#sakana-widget');
-    // new SakanaWidget().setState({ i: 0.001, d: 1 }).mount('#sakana-widget');
-    const github = SakanaWidget.getCharacter('chisato');
-github.image = `https://zozou02.github.io/assets/img/favicons/redwhilte512.gif`;
-SakanaWidget.registerCharacter('github', github);
-new SakanaWidget({ character: 'github', rod: false }).mount('#sakana-widget');
-  }
-</script>
-<script
-  async
-  onload="initSakanaWidget()"
-  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js"
-></script>
