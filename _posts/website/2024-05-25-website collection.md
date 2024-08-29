@@ -22,6 +22,7 @@ pin: true
 - 📑[PDF在线工具集 ilovepdf](https://www.ilovepdf.com/zh-cn)
 - 🔣[latex公式编辑器](https://www.latexlive.com/)
 - 🎛[miku工具集](https://tools.miku.ac/)
+- 📌[badges制作](https://shields.io/)[https://img.shields.io/badge/any_text-you_like-blue](https://img.shields.io/badge/any_text-you_like-blue)
 
 ## 2. 🎮娱乐类
 
