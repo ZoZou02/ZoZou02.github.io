@@ -1,2 +1,2 @@
 使用obsidian插件git
- 手机也使用obsdian插件git
+手机也使用obsdian插件git

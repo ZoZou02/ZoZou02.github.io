@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/template/windows测试.md",
+                "file": "_posts/日记/2024-09-01.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/template/windows测试.md",
+                "file": "_posts/日记/2024-09-01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/template/windows测试.md",
+                "file": "_posts/日记/2024-09-01.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/template/windows测试.md"
+                "file": "_posts/日记/2024-09-01.md"
               }
             }
           },
@@ -158,11 +158,11 @@
   },
   "active": "815d7c68b86c74b7",
   "lastOpenFiles": [
-    "_posts/template/task.md",
-    "_posts/template/windows测试.md",
-    "_posts/template/blog.md",
     "_posts/日记/CES.md",
     "_posts/日记/2024-09-01.md",
+    "_posts/template/windows测试.md",
+    "_posts/template/task.md",
+    "_posts/template/blog.md",
     "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_posts/笔记/2024-06-06-仿Windows资源监视器的JAVA项目.md",
     "_posts/日记/2024-07-03-重回.md",
