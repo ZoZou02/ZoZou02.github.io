@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/template/未命名.md",
+                "file": "_posts/template/windows测试.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/template/未命名.md",
+                "file": "_posts/template/windows测试.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/template/未命名.md",
+                "file": "_posts/template/windows测试.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/template/未命名.md"
+                "file": "_posts/template/windows测试.md"
               }
             }
           },
@@ -138,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -159,7 +159,7 @@
   "active": "815d7c68b86c74b7",
   "lastOpenFiles": [
     "_posts/template/task.md",
-    "_posts/template/未命名.md",
+    "_posts/template/windows测试.md",
     "_posts/template/blog.md",
     "_posts/日记/CES.md",
     "_posts/日记/2024-09-01.md",
