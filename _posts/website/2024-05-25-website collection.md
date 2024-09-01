@@ -26,17 +26,19 @@ pin: true
 - 📌[badges制作](https://shields.io/)[https://img.shields.io/badge/any_text-you_like-blue](https://img.shields.io/badge/any_text-you_like-blue)
 - 〰[github贡献生成](https://github-contributions.vercel.app/)
 
-## 2. 🎮娱乐类
+## 2. Github相关
+
+## 3. 🎮娱乐类
 
 - 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
 - 🥁[太鼓达人 Taiko web](https://cjdgrevival.com/)
 
-## 3. 🎨资源素材
+## 4. 🎨资源素材
 
 - 🧩[icon自定义下载 icons8](https://icons8.com/)
 - 🖌️[PS免费笔刷](https://myphotoshopbrushes.com/)
 - 😀[emoji大全1](https://emoji6.com/emojiall/)
 - 😁[emoji大全2](https://www.emojiall.com/)
 
-## 4. 🕸其他
+## 5. 🕸其他
 
