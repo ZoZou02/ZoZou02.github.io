@@ -24,10 +24,9 @@ pin: true
 - 🔣[latex公式编辑器](https://www.latexlive.com/)
 - 🎛[miku工具集](https://tools.miku.ac/)
 - 📌[badges制作](https://shields.io/)[https://img.shields.io/badge/any_text-you_like-blue](https://img.shields.io/badge/any_text-you_like-blue)
-- 〰[github贡献生成](https://github-contributions.vercel.app/)
 
 ## 2. 🐱Github相关
-- 
+- ✨[github贡献生成](https://github-contributions.vercel.app/)
 
 ## 3. 🎮娱乐类
 
