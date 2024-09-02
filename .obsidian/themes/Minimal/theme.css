@@ -8019,6 +8019,50 @@ body.theme-light {
 	-webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-check"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m9 9.5 2 2 4-4"/></svg>');
 }
 
+/* ----------------------------------------------------------- */
+/*  Lite tasks 页面 */
+
+.lite-task .cm-scroller {
+	padding-left: 0 !important;
+}
+
+/* 不用重复显示了 */
+.lite-task .task-priority {
+	display: none;
+}
+
+.lite-task .cm-preview-code-block.cm-embed-block {
+	margin-right: 1em !important;
+}
+
+.lite-task h4.tasks-group-heading,
+.lite-task h5.tasks-group-heading {
+	background-color: #89cfdd;
+	font-size:medium;
+	text-align: center;
+	padding-top: 0.2em;
+}
+
+.lite-task h4.tasks-group-heading::after {
+	content: "";
+	display: block;
+	width: 95%;
+	height: 1px;
+	background-color: var(--background-modifier-border);
+	margin: 0.5em 0;
+}
+
+/* ul 后面的 h4 增加 margin-top */
+.lite-task ul+h4 {
+	margin-top: 1em !important;
+}
+
+.lite-task .task-list-item.plugin-tasks-list-item {
+	margin-inline-start: 0.5em;
+}
+
+/* ----------------------------------------------------------- */
+
 
 /* Plugin compatibility */
 

@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "b14b19d0a305f90b",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/日记/LiteTasks.md",
+                "file": "_posts/template/task.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/日记/LiteTasks.md",
+                "file": "_posts/template/task.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/日记/LiteTasks.md"
+                "file": "_posts/template/task.md"
               }
             }
           },
@@ -154,7 +155,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5
+    "width": 535.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,8 +169,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bdcedacec5ad468d",
+  "active": "f7d1e9f32fd55ee4",
   "lastOpenFiles": [
+    "_posts/日记/LiteTasks.md",
     "_posts/template/task.md",
     "_posts/website/2024-05-25-website collection.md",
     "_posts/template/blog.md",
@@ -177,7 +179,6 @@
     "_posts/自我/2023-3-21-云上有一片孤独的海.md",
     "_posts/自我/2023-2-28-一个人的自我陈述.md",
     "_posts/文章/2024-08-11-九井谅子专访：喜爱与厌恶之物.md",
-    "_posts/日记/LiteTasks.md",
     "_posts/日记/2024-09-02.md",
     "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
     "_posts/template/windows测试.md",
