@@ -11,8 +11,12 @@
             "id": "1dcd235d94dbe63c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "_posts/日记/2024-09-02.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
+                "file": "_posts/日记/2024-09-02.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
+                "file": "_posts/日记/2024-09-02.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -121,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md"
+                "file": "_posts/日记/2024-09-02.md"
               }
             }
           },
@@ -152,8 +156,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f7d1e9f32fd55ee4",
+  "active": "1dcd235d94dbe63c",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
     "_posts/template/task.md",
     "_posts/template/windows测试.md",
     "_posts/笔记/2024-07-10-Vue3核心语法.md",
@@ -169,7 +174,6 @@
     "_posts/日记/2024-06-29-日记测试.md",
     "_posts/website/2024-05-25-website collection.md",
     "未命名.canvas",
-    "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
     "Excalidraw",
     "_posts/日记/2024-08-29-To Do List.md",
     "_posts/website/hields.io.md",
