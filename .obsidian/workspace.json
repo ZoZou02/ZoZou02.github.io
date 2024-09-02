@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/template/task.md",
+                "file": "_posts/日记/LiteTasks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/template/task.md",
+                "file": "_posts/日记/LiteTasks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/template/task.md"
+                "file": "_posts/日记/LiteTasks.md"
               }
             }
           },
@@ -154,7 +154,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 376.5
+    "width": 437.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,11 +168,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "1dcd235d94dbe63c",
+  "active": "bdcedacec5ad468d",
   "lastOpenFiles": [
+    "_posts/template/task.md",
     "_posts/website/2024-05-25-website collection.md",
     "_posts/template/blog.md",
-    "_posts/template/task.md",
     "_posts/图集/2024-07-13-像素画.md",
     "_posts/自我/2023-3-21-云上有一片孤独的海.md",
     "_posts/自我/2023-2-28-一个人的自我陈述.md",
