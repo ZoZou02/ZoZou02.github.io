@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/日记/2024-09-02.md",
-                "mode": "preview",
+                "file": "_posts/日记/50project50days.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 212.5,
+    "collapsed": true
   },
   "right": {
     "id": "b14b19d0a305f90b",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/日记/LiteTasks.md",
+                "file": "_posts/日记/50project50days.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/日记/LiteTasks.md",
+                "file": "_posts/日记/50project50days.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/日记/LiteTasks.md"
+                "file": "_posts/日记/50project50days.md"
               }
             }
           },
@@ -154,7 +155,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5
+    "width": 461.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,11 +170,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bdcedacec5ad468d",
+  "active": "1dcd235d94dbe63c",
   "lastOpenFiles": [
+    "_posts/日记/LiteTasks.md",
+    "_posts/日记/50project50days.md",
     "_posts/日记/2024-09-02.md",
     "_posts/日记/2024-09-01.md",
-    "_posts/日记/LiteTasks.md",
     "_posts/example/2019-08-09-getting-started.md",
     "_posts/template/blog.md",
     "_posts/template/task.md",
@@ -187,7 +190,6 @@
     "_posts/笔记/2024-06-06-仿Windows资源监视器的JAVA项目.md",
     "_posts/日记/2024-07-03-重回.md",
     "_posts/日记/2024-05-26-第一篇博客日记.md",
-    "_posts/日记/50project50days.md",
     "_posts/日记/CES.md",
     "_posts/日记/2024-06-29-日记测试.md",
     "未命名.canvas",
