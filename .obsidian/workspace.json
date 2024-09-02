@@ -18,21 +18,8 @@
                 "source": true
               }
             }
-          },
-          {
-            "id": "bdcedacec5ad468d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/日记/LiteTasks.md",
-                "mode": "source",
-                "source": true
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -134,6 +121,18 @@
             }
           },
           {
+            "id": "bdcedacec5ad468d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/日记/LiteTasks.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
             "id": "3a04692193a2b24d",
             "type": "leaf",
             "state": {
@@ -152,11 +151,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 372.5
+    "width": 452.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -170,7 +169,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f7d1e9f32fd55ee4",
+  "active": "bdcedacec5ad468d",
   "lastOpenFiles": [
     "_posts/日记/2024-09-02.md",
     "_posts/日记/LiteTasks.md",
