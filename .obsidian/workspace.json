@@ -8,14 +8,31 @@
         "type": "tabs",
         "children": [
           {
+            "id": "1dcd235d94dbe63c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/日记/2024-09-02.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
             "id": "bdcedacec5ad468d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "_posts/日记/LiteTasks.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -65,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "b14b19d0a305f90b",
@@ -81,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/日记/2024-09-02.md",
+                "file": "_posts/日记/LiteTasks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/日记/2024-09-02.md",
+                "file": "_posts/日记/LiteTasks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -121,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/日记/2024-09-02.md"
+                "file": "_posts/日记/LiteTasks.md"
               }
             }
           },
@@ -132,25 +150,13 @@
               "type": "calendar",
               "state": {}
             }
-          },
-          {
-            "id": "1dcd235d94dbe63c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/日记/2024-09-02.md",
-                "mode": "source",
-                "source": true
-              }
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 391.5
+    "width": 372.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,15 +170,16 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "1dcd235d94dbe63c",
+  "active": "f7d1e9f32fd55ee4",
   "lastOpenFiles": [
+    "_posts/日记/2024-09-02.md",
+    "_posts/日记/LiteTasks.md",
     "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
     "_posts/template/task.md",
     "_posts/template/windows测试.md",
     "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_posts/笔记/2024-06-06-仿Windows资源监视器的JAVA项目.md",
     "_posts/图集/2024-07-13-像素画.md",
-    "_posts/日记/2024-09-02.md",
     "_posts/日记/2024-07-03-重回.md",
     "_posts/日记/2024-09-01.md",
     "_posts/日记/2024-05-26-第一篇博客日记.md",
@@ -211,7 +218,6 @@
     "_posts/example/2019-08-08-write-a-new-post.md",
     "_posts/example/2019-08-08-text-and-typography.md",
     "example/2019-08-11-customize-the-favicon.md",
-    "example/2019-08-09-getting-started.md",
-    "example/2019-08-08-write-a-new-post.md"
+    "example/2019-08-09-getting-started.md"
   ]
 }
