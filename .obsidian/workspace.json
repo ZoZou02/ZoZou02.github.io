@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "12cd67ebd8889149",
+        "id": "955dafd25a1952aa",
         "type": "tabs",
         "children": [
           {
-            "id": "815d7c68b86c74b7",
+            "id": "1dcd235d94dbe63c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/日记/2024-09-01.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/日记/2024-09-01.md",
+                "file": "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/日记/2024-09-01.md",
+                "file": "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +121,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/日记/2024-09-01.md"
+                "file": "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md"
               }
             }
           },
@@ -156,18 +152,20 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "815d7c68b86c74b7",
+  "active": "f7d1e9f32fd55ee4",
   "lastOpenFiles": [
-    "_posts/日记/2024-05-26-第一篇博客日记.md",
-    "_posts/日记/50project50days.md",
-    "_posts/日记/2024-09-01.md",
-    "_posts/日记/CES.md",
-    "_posts/template/windows测试.md",
     "_posts/template/task.md",
-    "_posts/template/blog.md",
+    "_posts/template/windows测试.md",
     "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_posts/笔记/2024-06-06-仿Windows资源监视器的JAVA项目.md",
+    "_posts/图集/2024-07-13-像素画.md",
+    "_posts/日记/2024-09-02.md",
     "_posts/日记/2024-07-03-重回.md",
+    "_posts/日记/2024-09-01.md",
+    "_posts/日记/2024-05-26-第一篇博客日记.md",
+    "_posts/日记/50project50days.md",
+    "_posts/日记/CES.md",
+    "_posts/template/blog.md",
     "_posts/日记/2024-06-29-日记测试.md",
     "_posts/website/2024-05-25-website collection.md",
     "未命名.canvas",
@@ -187,7 +185,6 @@
     "src/img/cityskyPS.png",
     "src/img/cagedog.png",
     "src/img/big-export.gif",
-    "_posts/图集/2024-07-13-像素画.md",
     "_site/posts/write-a-new-post/index.html",
     "_site/posts/write-a-new-post",
     "_site/posts/text-and-typography/index.html",
@@ -203,7 +200,6 @@
     "_posts/example/2019-08-08-text-and-typography.md",
     "example/2019-08-11-customize-the-favicon.md",
     "example/2019-08-09-getting-started.md",
-    "example/2019-08-08-write-a-new-post.md",
-    "example/2019-08-08-text-and-typography.md"
+    "example/2019-08-08-write-a-new-post.md"
   ]
 }
