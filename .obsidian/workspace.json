@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "955dafd25a1952aa",
+        "id": "d271ee5b63ae4de6",
         "type": "tabs",
         "children": [
           {
-            "id": "1dcd235d94dbe63c",
+            "id": "bdcedacec5ad468d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/日记/2024-09-02.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -136,9 +132,21 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "1dcd235d94dbe63c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/日记/2024-09-02.md",
+                "mode": "source",
+                "source": true
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
