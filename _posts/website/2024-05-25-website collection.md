@@ -23,22 +23,25 @@ pin: true
 - 📑[PDF在线工具集 ilovepdf](https://www.ilovepdf.com/zh-cn)
 - 🔣[latex公式编辑器](https://www.latexlive.com/)
 - 🎛[miku工具集](https://tools.miku.ac/)
+
+## 2. 💻编程相关
+- 🔥[freecodecamp](https://www.freecodecamp.org/learn/)
+
+## 3. 🐱Github相关
+
+- ✨[github贡献生成](https://github-contributions.vercel.app/)
 - 📌[badges制作](https://shields.io/)[https://img.shields.io/badge/any_text-you_like-blue](https://img.shields.io/badge/any_text-you_like-blue)
 
-## 2. 🐱Github相关
-- ✨[github贡献生成](https://github-contributions.vercel.app/)
-
-## 3. 🎮娱乐类
+## 4. 🎮娱乐类
 
 - 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
 - 🥁[太鼓达人 Taiko web](https://cjdgrevival.com/)
 
-## 4. 🎨资源素材
+## 5. 🎨资源素材
 
 - 🧩[icon自定义下载 icons8](https://icons8.com/)
 - 🖌️[PS免费笔刷](https://myphotoshopbrushes.com/)
 - 😀[emoji大全1](https://emoji6.com/emojiall/)
 - 😁[emoji大全2](https://www.emojiall.com/)
 
-## 5. 🕸其他
-
+## 6. 🕸其他
