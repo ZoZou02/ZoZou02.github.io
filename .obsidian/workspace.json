@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "d271ee5b63ae4de6",
+        "id": "13fb8d8ac8f22855",
         "type": "tabs",
         "children": [
           {
-            "id": "1dcd235d94dbe63c",
+            "id": "2e5a472252673692",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/日记/2024-09-05.md",
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/日记/2024-09-05.md",
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/日记/2024-09-05.md",
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/日记/2024-09-05.md"
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md"
               }
             }
           },
@@ -169,7 +169,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "1dcd235d94dbe63c",
+  "active": "2e5a472252673692",
   "lastOpenFiles": [
     "_posts/日记/LiteTasks.md",
     "_posts/日记/2024-09-05.md",
