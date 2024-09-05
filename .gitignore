@@ -28,8 +28,9 @@ assets/js/dist
 # Obsidian
 .obsidian
 
-# 日记
+# 日记 任务
 日记/
+任务/
 
 # 文档案例
 example
