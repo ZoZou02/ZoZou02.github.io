@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/日记/2024-09-04.md",
+                "file": "_posts/日记/2024-09-05.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/日记/2024-09-04.md",
+                "file": "_posts/日记/2024-09-05.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/日记/2024-09-04.md",
+                "file": "_posts/日记/2024-09-05.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/日记/2024-09-04.md"
+                "file": "_posts/日记/2024-09-05.md"
               }
             }
           },
@@ -170,8 +170,9 @@
   },
   "active": "1dcd235d94dbe63c",
   "lastOpenFiles": [
-    "_posts/日记/LiteTasks.md",
     "_posts/日记/2024-09-04.md",
+    "_posts/日记/2024-09-05.md",
+    "_posts/日记/LiteTasks.md",
     "_posts/日记/50project50days.md",
     "_posts/日记/2024-05-31-课设验收完毕！.md",
     "_posts/日记/2024-05-26-第一篇博客日记.md",
@@ -195,7 +196,6 @@
     "_posts/笔记/2024-06-06-仿Windows资源监视器的JAVA项目.md",
     "_posts/日记/2024-07-03-重回.md",
     "_posts/日记/CES.md",
-    "_posts/日记/2024-06-29-日记测试.md",
     "未命名.canvas",
     "Excalidraw",
     "src/img/zozou@3x.png",
