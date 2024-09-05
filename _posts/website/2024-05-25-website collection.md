@@ -26,6 +26,7 @@ pin: true
 
 ## 2. 💻编程相关
 - 🔥[freecodecamp](https://www.freecodecamp.org/learn/)
+- ☁[web前端面试](https://vue3js.cn/interview/)
 
 ## 3. 🐱Github相关
 
