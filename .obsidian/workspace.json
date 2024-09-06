@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
+                "file": "_posts/日记/2024-09-06-使用zxing创建二维码.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
+                "file": "_posts/日记/2024-09-06-使用zxing创建二维码.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
+                "file": "_posts/日记/2024-09-06-使用zxing创建二维码.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md"
+                "file": "_posts/日记/2024-09-06-使用zxing创建二维码.md"
               }
             }
           },
@@ -170,19 +170,20 @@
   },
   "active": "4afbfdee5902f24b",
   "lastOpenFiles": [
+    "_posts/template/task.md",
+    "_posts/website/2024-05-25-website collection.md",
+    "_posts/日记/2024-09-06-使用zxing创建二维码.md",
+    "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
     "_posts/任务/2024-09-05-毕业设计.md",
     "_posts/日记/LiteTasks.md",
-    "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
     "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_tabs/关于.md",
     "_posts/任务/2024-09-01-个人游戏信息.md",
     "_posts/日记/2024-09-05.md",
-    "_posts/template/task.md",
     "src/img/Pasted image 20240905110802.png",
     "src/img/Pasted image 20240905110735.png",
     "src/img/Pasted image 20240905110700.png",
     "src/img/Pasted image 20240905110537.png",
-    "_posts/website/2024-05-25-website collection.md",
     "_posts/任务",
     "_posts/日记/2024-09-01.md",
     "_posts/日记/2024-09-02.md",
@@ -200,7 +201,6 @@
     "_posts/自我/2023-3-21-云上有一片孤独的海.md",
     "_posts/自我/2023-2-28-一个人的自我陈述.md",
     "_posts/文章/2024-08-11-九井谅子专访：喜爱与厌恶之物.md",
-    "Excalidraw/Drawing 2024-09-01 09.11.37.excalidraw.md",
     "未命名.canvas",
     "Excalidraw",
     "src/img/zozou@3x.png",
