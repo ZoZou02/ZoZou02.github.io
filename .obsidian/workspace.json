@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "13fb8d8ac8f22855",
+        "id": "236c5b860e410c72",
         "type": "tabs",
         "children": [
           {
-            "id": "2e5a472252673692",
+            "id": "4afbfdee5902f24b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/任务/2024-09-05-毕业设计.md",
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 389.5,
-    "collapsed": true
+    "width": 389.5
   },
   "right": {
     "id": "b14b19d0a305f90b",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/任务/2024-09-05-毕业设计.md",
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/任务/2024-09-05-毕业设计.md",
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/任务/2024-09-05-毕业设计.md"
+                "file": "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md"
               }
             }
           },
@@ -155,8 +154,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 461.5,
-    "collapsed": true
+    "width": 461.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -170,15 +168,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e5a472252673692",
+  "active": "4afbfdee5902f24b",
   "lastOpenFiles": [
-    "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
     "_posts/任务/2024-09-05-毕业设计.md",
+    "_posts/日记/LiteTasks.md",
+    "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
     "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_tabs/关于.md",
     "_posts/任务/2024-09-01-个人游戏信息.md",
     "_posts/日记/2024-09-05.md",
-    "_posts/日记/LiteTasks.md",
     "_posts/template/task.md",
     "src/img/Pasted image 20240905110802.png",
     "src/img/Pasted image 20240905110735.png",
