@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/笔记/2024-07-10-Vue3核心语法.md",
+                "file": "_posts/任务/2024-09-05-毕业设计.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/笔记/2024-07-10-Vue3核心语法.md",
+                "file": "_posts/任务/2024-09-05-毕业设计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/笔记/2024-07-10-Vue3核心语法.md",
+                "file": "_posts/任务/2024-09-05-毕业设计.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/笔记/2024-07-10-Vue3核心语法.md"
+                "file": "_posts/任务/2024-09-05-毕业设计.md"
               }
             }
           },
@@ -171,11 +171,12 @@
   },
   "active": "2e5a472252673692",
   "lastOpenFiles": [
+    "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
+    "_posts/任务/2024-09-05-毕业设计.md",
+    "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_tabs/关于.md",
     "_posts/任务/2024-09-01-个人游戏信息.md",
     "_posts/日记/2024-09-05.md",
-    "_posts/任务/2024-09-05-毕业设计.md",
-    "_posts/任务/2024-09-01-前沿技术综合实训（校企合作）.md",
     "_posts/日记/LiteTasks.md",
     "_posts/template/task.md",
     "src/img/Pasted image 20240905110802.png",
@@ -190,7 +191,6 @@
     "_posts/日记/50project50days.md",
     "_posts/日记/2024-05-31-课设验收完毕！.md",
     "_posts/日记/2024-05-26-第一篇博客日记.md",
-    "_posts/笔记/2024-07-10-Vue3核心语法.md",
     "_posts/example/2019-08-08-text-and-typography.md",
     "_posts/example/2019-08-08-write-a-new-post.md",
     "_posts/example/2019-08-09-getting-started.md",
