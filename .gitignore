@@ -27,7 +27,6 @@ assets/js/dist
 
 # Obsidian
 .obsidian
-.obsidian/plugins
 
 # 日记 任务
 日记/
@@ -38,5 +37,3 @@ example
 
 # 草图
 Excalidraw
-
-.obsidian/plugins/obsidian-git/data.json
