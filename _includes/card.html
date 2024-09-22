@@ -9,19 +9,16 @@
 
 <body>
     <div class="card">
-
-        <div class="your-element" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-            <img src="D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/zozou.png" alt=""
-                style="height: 300px; width: 300px;">
-            <div class="inner" data-tilt></div>
+        <div class="box" data-tilt="" style="">
+            <!-- <img src="D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/zozou.png" alt=""
+                style="height: 200px; width: 200px;"> -->
+            <div class="inner">
+                <!-- <img src="D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/framework.png" alt=""
+                    style="height: 200px; width: 200px;"> -->
+            </div>
         </div>
     </div>
-    <div class="box" data-tilt=""
-        style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
-        <img src="D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/zozou.png" alt=""
-                style="height: 100px; width: 100px;">
-        <div class="inner"></div>
-    </div>
+
 
     <!-- at the end of the body -->
     <script type="text/javascript" src="vanilla-tilt.js"></script>
@@ -40,33 +37,33 @@
         transform: perspective(1000px);
     }
 
-    .inner {
-        background-color: rebeccapurple;
-        height: 20px;
-        width: 20px;
-        transform: translateZ(20px)
-    }
 
     .box {
-        height: 150px;
-        background-color: red;
+        height: 200px;
         width: 200px;
-        background-image: -webkit-linear-gradient(315deg, #ff00ba 0%, #fae713 100%);
-        background-image: linear-gradient(135deg, #ff00ba 0%, #fae713 100%);
+        background-image: url("D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/zozou.png");
+        /* mask-image: url("");
+        mask-repeat: no-repeat; */
+        background-size: cover;
         transform-style: preserve-3d;
         transform: perspective(1000px);
+        will-change: transform;
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
     }
 
     .box .inner {
+        background-image: url("D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/framework.png");
+        background-size: cover;
+
         position: absolute;
-        width: 50%;
-        height: 50%;
+        width: 100%;
+        height: 100%;
         top: 50%;
         left: 50%;
         transform: translateZ(30px) translateX(-50%) translateY(-50%);
-        box-shadow: 0 0 50px 0 rgba(51, 51, 51, 0.3);
-        background-color: rgba(202, 202, 202, 0.547);
-        
+        /* box-shadow: 0 0 50px 0 rgba(51, 51, 51, 0.3); */
+        /* background-color: rgba(202, 202, 202, 0.547); */
+
     }
 </style>
 
