@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card">
+
+        <div class="your-element" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+            <img src="D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/zozou.png" alt=""
+                style="height: 300px; width: 300px;">
+            <div class="inner" data-tilt></div>
+        </div>
+    </div>
+    <div class="box" data-tilt=""
+        style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+        <img src="D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/zozou.png" alt=""
+                style="height: 100px; width: 100px;">
+        <div class="inner"></div>
+    </div>
+
+    <!-- at the end of the body -->
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+</body>
+
+<style>
+    .card {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    .your-element {
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+    }
+
+    .inner {
+        background-color: rebeccapurple;
+        height: 20px;
+        width: 20px;
+        transform: translateZ(20px)
+    }
+
+    .box {
+        height: 150px;
+        background-color: red;
+        width: 200px;
+        background-image: -webkit-linear-gradient(315deg, #ff00ba 0%, #fae713 100%);
+        background-image: linear-gradient(135deg, #ff00ba 0%, #fae713 100%);
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+    }
+
+    .box .inner {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translateZ(30px) translateX(-50%) translateY(-50%);
+        box-shadow: 0 0 50px 0 rgba(51, 51, 51, 0.3);
+        background-color: rgba(202, 202, 202, 0.547);
+        
+    }
+</style>
+
+</html>
