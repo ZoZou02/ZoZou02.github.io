@@ -58,10 +58,11 @@ PS D:\> ollama run qwen2
 2. 到项目目录下使用`npm install`安装依赖。
 3. 使用`npm run dev`运行项目。
 4. 使用浏览器打开：http://localhost:3000/
+
 ## 5. ollama与springboot结合
 .....
 
-### 5.1. 参考资料
+## 6. 参考资料
  [Ollama完整教程：本地LLM管理、WebUI对话、Python/Java客户端API应用](https://www.cnblogs.com/obullxl/p/18295202/NTopic2024071001)
 
 
