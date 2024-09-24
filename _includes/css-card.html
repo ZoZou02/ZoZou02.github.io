@@ -10,17 +10,17 @@
 <body>
     <div class="cardlist">
         <div class="main">
-            <div id="element">
+            <div class="element">
                 <div class="shine-card" id="g-img"></div>
             </div>
         </div>
         <div class="main">
-            <div id="element">
+            <div class="element">
                 <div class="shine-card" id="g-img"></div>
             </div>
         </div>
         <div class="main">
-            <div id="element">
+            <div class="element">
                 <div class="shine-card" id="g-img"></div>
             </div>
         </div>
@@ -32,36 +32,40 @@
     const multiple = 20;
     // const mouseOverContainer = document.getElementsByClassName("main")[0];
 
-    document.querySelectorAll(".main").forEach(mouseOverContainer => {
-        mouseOverContainer.addEventListener('mousemove', (e) => {
-            window.requestAnimationFrame(() => {
-                transformElement(mouseOverContainer, e.clientX, e.clientY)
-            });
-        });
-        mouseOverContainer.addEventListener('mouseleave', () => {
-            const element = container.querySelector(".element");
-            const imgElement = container.querySelector(".shine-card");
-            window.requestAnimationFrame(() => {
-                element.style.transform = "rotateX(0) rotateY(0)";
-                element.style.transition = "all 0.3s linear 0s";
-                imgElements[0].style.setProperty('--per', `30%`);
-
-            });
-        });
-    })
-
     function transformElement(container, x, y) {
         const element = container.querySelector(".element");
         const imgElement = container.querySelector(".shine-card");
-        let box = element.getBoundingClientRect();
-        let calcX = (y - box.y - (box.height / 2)) / multiple;
-        let calcY = -(x - box.x - (box.width / 2)) / multiple;
-        const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
-        element.style.transform = "rotateX(" + calcX + "deg) "
-            + "rotateY(" + calcY + "deg)";
-        imgElement.style.setProperty('--per', `${percentage}%`);
+
+        if (element && imgElement) { // 确保元素存在
+            let box = element.getBoundingClientRect();
+            let calcX = (y - box.y - (box.height / 2)) / multiple;
+            let calcY = -(x - box.x - (box.width / 2)) / multiple;
+            const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
+
+            element.style.transform = "rotateX(" + calcX + "deg) "
+                + "rotateY(" + calcY + "deg)";
+            imgElement.style.setProperty('--per', `${percentage}%`);
+        }
     }
 
+    document.querySelectorAll(".mouseOverContainer").forEach(container => {
+        container.addEventListener('mousemove', (e) => {
+            window.requestAnimationFrame(() => transformElement(container, e.clientX, e.clientY));
+        });
+
+        container.addEventListener('mouseleave', () => {
+            const element = container.querySelector(".element");
+            const imgElement = container.querySelector(".shine-card");
+
+            if (element && imgElement) { // 确保元素存在
+                window.requestAnimationFrame(() => {
+                    element.style.transform = "rotateX(0) rotateY(0)";
+                    element.style.transition = "all 0.3s linear 0s";
+                    imgElement.style.setProperty('--per', `30%`);
+                });
+            }
+        });
+    });
 
     //--------------------------element----------------------
     // const elements = document.querySelectorAll(".element");
