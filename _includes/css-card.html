@@ -9,6 +9,7 @@
 
 <body>
     <div class="cardlist">
+        <!-- <div class="data" data-tilt=""></div> -->
         <div class="main">
             <div class="element">
                 <div class="shine-card" id="g-img"></div>
@@ -26,6 +27,8 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+
 
 </body>
 <script>
@@ -40,7 +43,7 @@
         const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
 
         element.style.transform = "rotateX(" + calcX + "deg) "
-            + "rotateY(" + calcY + "deg)" + "translateZ(0)";
+            + "rotateY(" + calcY + "deg)" + "translateZ(0)" + "scale3d(1, 1, 1)";
         imgElement.style.setProperty('--per', `${percentage}%`);
     }
 
@@ -105,7 +108,7 @@
         width: 300px;
         height: 450px;
         transform-style: preserve-3d;
-        perspective: 500px;
+        will-change: transform;
 
     }
 
@@ -114,8 +117,19 @@
         width: 300px;
         height: 450px;
         transform-style: preserve-3d;
-        perspective: 500px;
+        will-change: transform;
 
+    }
+
+    .data {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        height: 450px;
+        background-size: contain;
+        background-image: url(D:/develop/myHomePage/ZoZou02.github.io/assets/img/avatar/haer.jpg);
+        transform: translateZ(0);
     }
 
     .shine-card {
@@ -128,6 +142,8 @@
         width: 300px;
         height: 450px;
         transform-style: preserve-3d;
+        will-change: transform;
+        perspective: 1000px;
 
         background-size: contain;
         border-radius: 4%;
