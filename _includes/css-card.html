@@ -40,7 +40,7 @@
         const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
 
         element.style.transform = "rotateX(" + calcX + "deg) "
-            + "rotateY(" + calcY + "deg)"+"translateZ(0)";
+            + "rotateY(" + calcY + "deg)" + "translateZ(0)";
         imgElement.style.setProperty('--per', `${percentage}%`);
     }
 
@@ -132,8 +132,8 @@
         background-size: contain;
         border-radius: 4%;
         background-image: url("D:\\develop\\myHomePage\\ZoZou02.github.io\\assets\\img\\avatar\\haer.jpg");
-        
-        /* &::after {
+
+        &::after {
             content: "";
             display: none;
             position: absolute;
@@ -142,9 +142,9 @@
 
             background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
             mix-blend-mode: color-dodge;
-        } */
+        }
 
-        /* &::before {
+        &::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -157,18 +157,18 @@
                     rgba(255, 255, 255, .3) calc(var(--per) + 50%),
                     transparent 100%);
             mix-blend-mode: color-dodge;
-        } */
+        }
 
         &:hover::after,
         &:hover::before {
             display: block;
         }
 
-        /* &:hover {
+        &:hover {
             transform: scale(1.1) translateZ(0);
             transition: transform 0.3s ease;
-        } */
-        
+        }
+
 
     }
 
