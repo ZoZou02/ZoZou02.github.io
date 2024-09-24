@@ -1,6 +1,6 @@
 ---
-title: blog
-description: 描述
+title: Ollama本地运行LLM教程
+description: Ollama是一个开源的 LLM服务工具，可以非常便捷地下载和运行本地大模型应用。
 author: ZoZou
 date: "{{date}} {{time}} +0800"
 categories:
