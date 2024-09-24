@@ -1,0 +1,60 @@
+<body>
+<div id="card"></div>
+  
+</body>
+<script>
+  const multiple = 20;
+  const mouseOverContainer = document.getElementsByTagName("body")[0];
+
+  const card = document.getElementById("card");
+  function transformCard(x, y) {
+      let box = card.getBoundingClientRect();
+      let calcX = -(y - box.y - (box.height / 2)) / multiple;
+      let calcY = (x - box.x - (box.width / 2)) / multiple;
+      card.style.transform = "rotateX(" + calcX + "deg) "
+          + "rotateY(" + calcY + "deg)";
+  }
+
+  mouseOverContainer.addEventListener('mousemove', (e) => {
+      window.requestAnimationFrame(function () {
+          // transformElement(e.clientX, e.clientY);
+          transformCard(e.clientX, e.clientY);
+
+      });
+  });
+  mouseOverContainer.addEventListener('mouseleave', (e) => {
+      window.requestAnimationFrame(function () {
+          element.style.transform = "rotateX(0) rotateY(0)";
+          card.style.transform = "rotateX(0) rotateY(0)";
+
+      });
+  });
+</script>
+<style>
+  div {
+    position: relative;
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 450px;
+    background-size: contain;
+    transform-style: preserve-3d;
+    border-radius: 4%;
+    background-image: url("D:\\develop\\myHomePage\\ZoZou02.github.io\\assets\\img\\avatar\\haer.jpg");
+
+    /* &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.5) 30%,
+          rgba(0, 0, 0, .5) 55%),
+        rgba(255, 255, 255, .5) 80%),
+        transparent 100%);
+      mix-blend-mode: color-dodge;
+    } */
+  }
+</style>
