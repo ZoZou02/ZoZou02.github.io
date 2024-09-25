@@ -26,7 +26,7 @@ pin: true
 - 🔣[latex公式编辑器](https://www.latexlive.com/)
 - 🎛[miku工具集](https://tools.miku.ac/)
 - 🎡[各种转换器aconvert](https://www.aconvert.com/cn/)
-
+- [🌲在线白噪音](https://asoftmurmur.com/)
 
 ## 2. 💻编程相关
 - 🔥[freecodecamp](https://www.freecodecamp.org/learn/)
