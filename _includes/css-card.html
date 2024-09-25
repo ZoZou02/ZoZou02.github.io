@@ -7,26 +7,69 @@
 </head>
 
 <body>
+    <div class="title">哈尔的移动城堡</div>
+
     <div class="cardlist">
         <!-- <div class="data" data-tilt=""></div> -->
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img"></div>
+                <div class="shine-card" id="g-img">
+                    <img src="https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_1.jpg" alt="">
+                </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img"></div>
+                <div class="shine-card" id="g-img">
+                    <img src="https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_2.jpg" alt="">
+                </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img"></div>
+                <div class="shine-card" id="g-img">
+                    <img src="https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_3.jpg" alt="">
+                </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img"></div>
+                <div class="shine-card" id="g-img">
+                    <img src="https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">间谍过家家</div>
+
+    <div class="cardlist">
+        <div class="main">
+            <div class="element">
+                <div class="shine-card" id="g-img">
+                    <img src="hhttps://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="element">
+                <div class="shine-card" id="g-img">
+                    <img src="https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="element">
+                <div class="shine-card" id="g-img">
+                    <img src="hhttps://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="element">
+                <div class="shine-card" id="g-img">
+                    <img src="https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_4.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -100,6 +143,26 @@
 </script>
 
 <style>
+    .title {
+        font-size: 2em;
+        /* 设置字体大小 */
+        font-weight: bold;
+        /* 设置字体为粗体 */
+        color: #333;
+        /* 设置字体颜色 */
+        text-align: center;
+        /* 设置文本居中 */
+        margin: 20px 0;
+        /* 设置上下外边距 */
+        text-transform: uppercase;
+        /* 设置文本为大写 */
+        letter-spacing: 1px;
+        /* 设置字母间距 */
+        font-family: 'Arial', sans-serif;
+        /* 设置字体 */
+    }
+
+
     .cardlist {
         display: flex;
         flex-direction: row;
@@ -144,15 +207,20 @@
         position: relative;
         margin-left: auto;
         margin-right: auto;
-        width: 270px;
-        height: 378px;
+
         transform-style: preserve-3d;
         will-change: transform;
         perspective: 1000px;
+        border-radius: 4%;
 
         background-size: contain;
-        border-radius: 4%;
-        background-image: url("https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_1.jpg");
+        /* background-image: url("https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_1.jpg"); */
+
+        img {
+            width: 270px;
+            height: 378px;
+            border-radius: 4%;
+        }
 
         &::after {
             content: "";
