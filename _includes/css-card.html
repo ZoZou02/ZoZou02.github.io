@@ -12,28 +12,28 @@
     <div class="cardlist">
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_3.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_3.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_2.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_2.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_5.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_5.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_4.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_4.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
@@ -45,51 +45,48 @@
     <div class="cardlist">
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_2.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_2.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_3.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_3.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="element">
-                <div class="shine-card" id="g-img" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_4.jpg');border-radius: 4%;
+                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_4.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- <script type="text/javascript" src="vanilla-tilt.js"></script> -->
-
-
 </body>
 <script>
-    const multiple = 20;
+    const multiple = 10;
     function transformElement(container, x, y) {
         const element = container.querySelector(".element");
         const imgElement = container.querySelector(".shine-card");
 
         let box = element.getBoundingClientRect();
-        let calcX = (y - box.y - (box.height / 2)) / multiple;
-        let calcY = -(x - box.x - (box.width / 2)) / multiple;
+        let calcX = -(y - box.y - (box.height / 2)) / multiple;
+        let calcY = (x - box.x - (box.width / 2)) / multiple;
         const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
 
         element.style.transform = "rotateX(" + calcX + "deg) "
-            + "rotateY(" + calcY + "deg)" + "translateZ(0)" + "scale3d(1, 1, 1)";
+            + "rotateY(" + calcY + "deg)";
         imgElement.style.setProperty('--per', `${percentage}%`);
     }
 
@@ -104,61 +101,23 @@
 
             window.requestAnimationFrame(() => {
                 element.style.transform = "rotateX(0) rotateY(0)";
-                element.style.transition = "all 0.3s linear 0s";
+                // element.style.transition = "all 0.3s linear 0s";
                 imgElement.style.setProperty('--per', `30%`);
             });
         });
     });
-
-    //--------------------------element----------------------
-    // const elements = document.querySelectorAll(".element");
-    // const element = document.getElementById("element");
-
-    // const imgElements = document.getElementsByClassName("shine-card")
-    // function transformElement(x, y) {
-    //     let box = element.getBoundingClientRect();
-    //     let calcX = (y - box.y - (box.height / 2)) / multiple;
-    //     let calcY = -(x - box.x - (box.width / 2)) / multiple;
-    //     const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
-    //     element.style.transform = "rotateX(" + calcX + "deg) "
-    //         + "rotateY(" + calcY + "deg)";
-    //     imgElements[0].style.setProperty('--per', `${percentage}%`);
-
-    // }
-
-    // mouseOverContainer.addEventListener('mousemove', (e) => {
-    //     window.requestAnimationFrame(function () {
-    //         transformElement(e.clientX, e.clientY);
-    //     });
-    // });
-    // mouseOverContainer.addEventListener('mouseleave', (e) => {
-    //     window.requestAnimationFrame(function () {
-    //         element.style.transform = "rotateX(0) rotateY(0)";
-    //         element.style.transition = "all 0.3s linear 0s";
-    //         imgElements[0].style.setProperty('--per', `30%`);
-
-    //     });
-    // });
 </script>
 
 <style>
     .title {
         font-size: 2em;
-        /* 设置字体大小 */
         font-weight: bold;
-        /* 设置字体为粗体 */
         color: #333;
-        /* 设置字体颜色 */
         text-align: center;
-        /* 设置文本居中 */
         margin: 20px 0;
-        /* 设置上下外边距 */
         text-transform: uppercase;
-        /* 设置文本为大写 */
         letter-spacing: 1px;
-        /* 设置字母间距 */
         font-family: 'Arial', sans-serif;
-        /* 设置字体 */
     }
 
 
@@ -169,6 +128,17 @@
         justify-content: space-evenly;
     }
 
+    
+    .element {
+        margin: auto;
+        width: 270px;
+        height: 378px;
+        /* background: linear-gradient(45deg, black, deeppink, #6006ff); */
+        border-radius: 10px;
+        transform-style: preserve-3d;
+        transition: all .1s;
+    }
+
     .main {
         margin-top: 50px;
         width: 270px;
@@ -176,49 +146,19 @@
         margin-left: 5px;
         margin-right: 5px;
         transform-style: preserve-3d;
-        will-change: transform;
-    }
-
-    #main {
-        /* margin-top: 100px; */
-        width: 270px;
-        height: 378px;
-        transform-style: preserve-3d;
-        will-change: transform;
-
-    }
-
-    .data {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        width: 270px;
-        height: 378px;
-        background-size: fill;
-        background-image: url("https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl's_1.jpg");
-        transform: translateZ(0);
+        perspective: 500px;
     }
 
     .shine-card {
         --per: 30%;
         box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
-
         position: relative;
-        margin-left: auto;
+        /* margin-left: auto;
         margin-right: auto;
         width: 270px;
-        height: 378px;
-        transform-style: preserve-3d;
-        will-change: transform;
-        perspective: 1000px;
-
-
-        img {
-            width: 270px;
-            height: 378px;
-            border-radius: 4%;
-            
-        }
+        height: 378px; */
+        width: 100%;
+        height: 100%;
 
         &::after {
             content: "";
@@ -251,40 +191,11 @@
             display: block;
         }
 
-        &:hover {
+        /* &:hover {
             transform: scale(1.1) translateZ(0);
-            transition: transform 0.3s ease;
-        }
+        } */
 
 
-    }
-
-
-
-
-    div {
-        transform-style: preserve-3d;
-
-    }
-
-    @keyframes rotate {
-        0% {
-            transform: rotateX(0deg) rotateZ(0deg);
-        }
-
-        50% {
-            transform: rotateX(40deg) rotateZ(180deg);
-        }
-
-        100% {
-            transform: rotateX(0deg) rotateZ(360deg);
-        }
-    }
-
-    @keyframes reverseRotate {
-        100% {
-            transform: rotate(-360deg);
-        }
     }
 </style>
 
