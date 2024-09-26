@@ -39,41 +39,72 @@
             </div>
         </div>
     </div>
-
-    <div class="title">间谍过家家</div>
-
-    <div class="cardlist">
-        <div class="main">
-            <div class="element">
-                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg');border-radius: 4%;
-        background-size: cover;">
-                </div>
-            </div>
-        </div>
-        <div class="main">
-            <div class="element">
-                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_2.jpg');border-radius: 4%;
-        background-size: cover;">
-                </div>
-            </div>
-        </div>
-        <div class="main">
-            <div class="element">
-                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_3.jpg');border-radius: 4%;
-        background-size: cover;">
-                </div>
-            </div>
-        </div>
-        <div class="main">
-            <div class="element">
-                <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_4.jpg');border-radius: 4%;
-        background-size: cover;">
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="gallery"></div>
 
 </body>
+<script>
+    const images = {
+        "间谍过家家": [
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_2.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_3.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_4.jpg',
+        ],
+        "鬼灭之刃": [
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/oni_6.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/oni_2.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/oni_3.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/oni_4.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/oni_5.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/oni_7.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/img_mugen_movie.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_01.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_02.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_03.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_04.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_05.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_06.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_07.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_08.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_09.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_10.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_11.jpg',
+            'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/kv_12.jpg',
+
+        ]
+    };
+
+    const gallery = document.getElementById('gallery');
+
+    for (const [title, urls] of Object.entries(images)) {
+        const titleElement = document.createElement('div');
+        titleElement.className = 'title';
+        titleElement.textContent = title;
+        gallery.appendChild(titleElement);
+
+        const cardlist = document.createElement('div');
+        cardlist.className = 'cardlist';
+
+        urls.forEach(url => {
+            const mainElement = document.createElement('div');
+            mainElement.className = 'main';
+
+            const element = document.createElement('div');
+            element.className = 'element';
+
+            const shineCard = document.createElement('div');
+            shineCard.className = 'shine-card';
+            shineCard.style.backgroundImage = `url('${url}')`;
+
+            element.appendChild(shineCard);
+            mainElement.appendChild(element);
+            cardlist.appendChild(mainElement);
+        });
+
+        gallery.appendChild(cardlist);
+    }
+</script>
+
 <script>
     const multiple = 10;
     function transformElement(container, x, y) {
@@ -126,7 +157,7 @@
         justify-content: space-evenly;
     }
 
-    
+
     .element {
         margin: auto;
         width: 270px;
@@ -153,6 +184,8 @@
         position: relative;
         width: 100%;
         height: 100%;
+        border-radius: 4%;
+        background-size: cover;
 
         &::after {
             content: "";
