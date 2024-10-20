@@ -62,7 +62,16 @@ PS D:\> ollama run qwen2
 ## 5. ollama与springboot结合
 .....
 
-## 6. 参考资料
+## 6. Windows下如何让Ollama的模型使用GPU
+1. [查看GPU支持](https://ollama.qianniu.city/doc/Ollama%20%E5%AF%B9GPU%20%E6%94%AF%E6%8C%81%E4%BF%A1%E6%81%AF.html)
+2. 安装[CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
+3. 安装[cuDNN](https://developer.nvidia.com/cudnn-downloads)
+
+## 7. 运行Huggingface下载的模型
+
+[qwen文档](https://qwen.readthedocs.io/en/latest/run_locally/ollama.html#)
+
+## 8. 参考资料
  [Ollama完整教程：本地LLM管理、WebUI对话、Python/Java客户端API应用](https://www.cnblogs.com/obullxl/p/18295202/NTopic2024071001)
 
 

@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css-card</title>
+    <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+
 </head>
 
 <body>
     <div class="title">哈尔的移动城堡</div>
 
-    <div class="cardlist">
-        <div class="main">
+    <div class="cardlist" id="cardlist">
+        <div class="main" id="item">
             <div class="element">
                 <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_3.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
-        <div class="main">
+        <div class="main" id="item">
             <div class="element">
                 <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_2.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
-        <div class="main">
+        <div class="main" id="item">
             <div class="element">
                 <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_5.jpg');border-radius: 4%;
         background-size: cover;">
                 </div>
             </div>
         </div>
-        <div class="main">
+        <div class="main" id="item">
             <div class="element">
                 <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/Howl_4.jpg');border-radius: 4%;
         background-size: cover;">
@@ -43,6 +45,7 @@
 
 </body>
 <script>
+    // 创建卡片
     const images = {
         "间谍过家家": [
             'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg',
@@ -75,6 +78,8 @@
     };
 
     const gallery = document.getElementById('gallery');
+    let id = 1;
+
 
     for (const [title, urls] of Object.entries(images)) {
         const titleElement = document.createElement('div');
@@ -84,10 +89,12 @@
 
         const cardlist = document.createElement('div');
         cardlist.className = 'cardlist';
+        cardlist.id = 'cardlist' + id;
 
         urls.forEach(url => {
             const mainElement = document.createElement('div');
             mainElement.className = 'main';
+            mainElement.id = 'item';
 
             const element = document.createElement('div');
             element.className = 'element';
@@ -100,12 +107,13 @@
             mainElement.appendChild(element);
             cardlist.appendChild(mainElement);
         });
-
+        id++;
         gallery.appendChild(cardlist);
     }
 </script>
 
 <script>
+    // 卡片动画
     const multiple = 10;
     function transformElement(container, x, y) {
         const element = container.querySelector(".element");
@@ -136,6 +144,23 @@
             });
         });
     });
+
+    // 卡片排序
+    Sortable.create(cardlist, {
+        handle: '#item',
+        animation: 150,
+    });
+
+    Sortable.create(cardlist1, {
+        handle: '#item',
+        animation: 150,
+    });
+
+    Sortable.create(cardlist2, {
+        handle: '#item',
+        animation: 150,
+    });
+
 </script>
 
 <style>
@@ -162,7 +187,6 @@
         margin: auto;
         width: 270px;
         height: 378px;
-        /* background: linear-gradient(45deg, black, deeppink, #6006ff); */
         border-radius: 10px;
         transform-style: preserve-3d;
         transition: all .1s;
@@ -193,7 +217,6 @@
             position: absolute;
             inset: 0;
             border-radius: 4%;
-
             background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
             mix-blend-mode: color-dodge;
         }

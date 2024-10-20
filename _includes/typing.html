@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing</title>
+</head>
+
+<body>
+    <div>
+        <p>
+            <a id="content"></a>
+        </p>
+    </div>
+
+    <script>
+        const text = `从前你离开从未回头
+
+我也从未想说一声抱歉
+
+紧握记忆到最后
+
+滥用梦境止疼的红药片
+
+安静体面的理由
+
+毫无征兆的雪天
+
+最终离别的街口
+
+故事转折的节点
+
+从前我不信爱能飞走
+
+直到故事都变成灰照片
+
+印记刻在了背后
+
+我只能看你越来越遥远
+`;
+        const contentElement = document.getElementById('content');
+        let index = 0;
+
+        function addNextCharacter() {
+            if (index < text.length) {
+                contentElement.textContent += text[index];
+                index++;
+                setTimeout(addNextCharacter, Math.random() * 150 + 30);
+            }
+        }
+
+        addNextCharacter();
+    </script>
+</body>
+
+</html>
+
+<style>
+    @property --pointerColor {
+        syntax: '<color>';
+        inherits: false;
+        initial-value: #000;
+    }
+
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background: #fff;
+    }
+
+
+    div {
+        position: relative;
+        display: inline;
+        margin: auto;
+        width: max(500px, 40vw);
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+    p {
+        padding: 4px 8px;
+        display: inline-block;
+    }
+
+    a {
+        background: linear-gradient(90deg, transparent, transparent calc(100% - 2px), var(--pointerColor) calc(100% - 2px), var(--pointerColor));
+        background-size: 100% 70%;
+        background-position: 0 5px;
+        background-repeat: no-repeat;
+        animation: colorChange .8s linear infinite;
+        padding-right: 4px;
+    }
+
+    @keyframes colorChange {
+
+        0%,
+        40% {
+            --pointerColor: #000
+        }
+
+        60%,
+        100% {
+            --pointerColor: transparent;
+        }
+    }
+</style>
