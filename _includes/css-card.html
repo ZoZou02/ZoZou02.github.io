@@ -44,7 +44,7 @@
 
 </body>
 <script>
-    // 创建卡片
+    /* 创建卡片 */
     const images = {
         "间谍过家家": [
             'https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/spy_1.jpg',
@@ -112,7 +112,7 @@
 </script>
 
 <script>
-    // 卡片动画
+    /* 卡片动画 */
     const multiple = 10;
     function transformElement(container, x, y) {
         const element = container.querySelector(".element");
@@ -144,7 +144,7 @@
         });
     });
 
-    // 卡片排序
+
     Sortable.create(cardlist, {
         handle: '#item',
         animation: 150,
