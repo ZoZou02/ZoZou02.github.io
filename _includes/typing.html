@@ -4,168 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing</title>
-</head>
-
-<body>
-    <div id="typing">
-        <p>
-            <a id="content"></a>
-        </p>
-    </div>
-
-    <script>
-        const sentences = [
-            "已经没别的话语",
-            "BGM循环播放",
-            "天空偷吃的伴侣",
-            "消失没下雨",
-            "卸下的钥匙放桌上",
-            "这一生最后的一次",
-            "太匆忙没什么仪式",
-            "我记性差差到了极致",
-            "希望能记住你名字",
-            "可我承诺了不想再回头",
-            "河水干涸也不选择回流",
-            "这一年受够了的迷茫",
-            "离开我 即便皱紧了眉头",
-            "其实很想逃避很想瓦",
-            "撤掉了文竹文昌塔",
-            "其实倒也没有很想打",
-            "但是还能藏在哪儿",
-            "伤 穿过手心",
-            "刚 锁上手机",
-            "光 光速逃逸地 消失在我眼前",
-            "装 装的简单",
-            "一章一章地连环",
-            "可当 夜晚又会回想起那天的",
-            "雪",
-            "跟着寒风飘旋转的雪",
-            "渐渐高空掉宣判的雪",
-            "求求你来回答我",
-            "这片美丽的枷锁",
-            "难道也算惩罚我",
-            "雪",
-            "跟着寒风飘旋转的雪",
-            "我永远做不到那么坚决",
-            "所以能否回答我",
-            "这片美丽的枷锁",
-            "难道也是惩罚我",
-            "慢慢冷静",
-            "先慢慢变得冷静",
-            "看清眼前的棱镜",
-            "现实投射的梦境",
-            "突然不小心离太近",
-            "不断找寻替代品",
-            "焦虑堆了几百斤",
-            "顾虑将自己的期待禁锢",
-            "可没有幻想谁能妄想完成拼图",
-            "又是谁在半场退出谁在半场进入",
-            "无论谁在观赏谁在半夜完成音符",
-            "唉 希望早日不用再倾诉",
-            "想回到以前 发明足够的开心",
-            "阴天暴雨前 下定足够的决心",
-            "安逸焦虑前 答应足够的决定",
-            "结果没发明 没下定 没答应",
-            "无助无助",
-            "究竟搭上了什么赌注赌注",
-            "以前也不能回到",
-            "以前也不能回到以前将故事全推倒",
-            "有谁能在未来回以前尝后悔的味道",
-            "伤 穿过手心",
-            "刚 锁上手机",
-            "光 光速逃逸地 消失在我眼前",
-            "装 装的简单",
-            "一章一章地连环",
-            "可当 夜晚又会回想起那天的",
-            "雪",
-            "跟着寒风飘旋转的雪",
-            "渐渐高空掉宣判的雪",
-            "求求你来回答我",
-            "这片美丽的枷锁",
-            "难道也算惩罚我",
-            "雪",
-            "跟着寒风飘旋转的雪",
-            "我永远做不到那么坚决",
-            "所以能否回答我",
-            "这片美丽的枷锁",
-            "难道也是惩罚我"
-        ];
-        const contentElement = document.getElementById('content');
-        let sentenceIndex = 0;
-        let charIndex = 0;
-
-        function addNextCharacter() {
-            if (charIndex < sentences[sentenceIndex].length) {
-                contentElement.textContent += sentences[sentenceIndex][charIndex];
-                charIndex++;
-                setTimeout(addNextCharacter, Math.random() * 150 + 30);
-            } else {
-                setTimeout(nextSentence, 1500);
-            }
+    <title>那天的雪</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
         }
 
-        function nextSentence() {
-            contentElement.textContent = '';
-            charIndex = 0;
-            sentenceIndex = (sentenceIndex + 1) % sentences.length;
-            addNextCharacter();
+        #typing {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
-        addNextCharacter();
-    </script>
-</body>
-
-</html>
-
-<style>
-    @property --pointerColor {
-        syntax: '<color>';
-        inherits: false;
-        initial-value: #ffffff;
-    }
-
-    body,
-    html {
-        width: 100%;
-        height: 100%;
-        display: flex;
-    }
-
-
-    div {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        width: 100%;
-        height: 100vh;
-        font-size: 26px;
-        line-height: 1.25;
-    }
-
-    p {
-        padding: 4px 8px;
-        display: inline-block;
-        text-align: center;
-    }
-
-    a {
-        padding-right: 4px;
-        color: #fff;
-        font-weight: bold;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 36px;
-        text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333;
-        letter-spacing: 3px;
-    }
-
-    #typing {
-        position: relative;
-        overflow: hidden;
-
-        &::before {
+        #typing::before {
             content: "";
             position: absolute;
             top: 0;
@@ -178,5 +36,144 @@
             filter: blur(5px);
             z-index: -1;
         }
-    }
-</style>
+
+        #content {
+            font-size: 64px;
+            letter-spacing: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        #audioPlayerContainer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        #audioPlayer {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="typing">
+        <a id="content"></a>
+    </div>
+
+    <div id="audioPlayerContainer">
+        <audio id="audioPlayer" controls>
+            <source src="D:\develop\myHomePage\ZoZou02.github.io\assets\music\Geebar - 那天的雪.flac" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        const lyrics = [
+            { text: "已经没别的话语", time: 0 },
+            { text: "BGM循环播放", time: 3 },
+            { text: "天空偷吃的伴侣", time: 6 },
+            { text: "消失没下雨", time: 9 },
+            { text: "卸下的钥匙放桌上", time: 12 },
+            { text: "这一生最后的一次", time: 15 },
+            { text: "太匆忙没什么仪式", time: 18 },
+            { text: "我记性差差到了极致", time: 21 },
+            { text: "希望能记住你名字", time: 24 },
+            { text: "可我承诺了不想再回头", time: 27 },
+            { text: "河水干涸也不选择回流", time: 30 },
+            { text: "这一年受够了的迷茫", time: 33 },
+            { text: "离开我 即便皱紧了眉头", time: 36 },
+            { text: "其实很想逃避很想瓦", time: 39 },
+            { text: "撤掉了文竹文昌塔", time: 42 },
+            { text: "其实倒也没有很想打", time: 45 },
+            { text: "但是还能藏在哪儿", time: 48 },
+            { text: "伤 穿过手心", time: 51 },
+            { text: "刚 锁上手机", time: 54 },
+            { text: "光 光速逃逸地 消失在我眼前", time: 57 },
+            { text: "装 装的简单", time: 60 },
+            { text: "一章一章地连环", time: 63 },
+            { text: "可当 夜晚又会回想起那天的", time: 66 },
+            { text: "雪", time: 69 },
+            { text: "跟着寒风飘旋转的雪", time: 72 },
+            { text: "渐渐高空掉宣判的雪", time: 75 },
+            { text: "求求你来回答我", time: 78 },
+            { text: "这片美丽的枷锁", time: 81 },
+            { text: "难道也算惩罚我", time: 84 },
+            { text: "雪", time: 87 },
+            { text: "跟着寒风飘旋转的雪", time: 90 },
+            { text: "我永远做不到那么坚决", time: 93 },
+            { text: "所以能否回答我", time: 96 },
+            { text: "这片美丽的枷锁", time: 99 },
+            { text: "难道也是惩罚我", time: 102 },
+            { text: "慢慢冷静", time: 105 },
+            { text: "先慢慢变得冷静", time: 108 },
+            { text: "看清眼前的棱镜", time: 111 },
+            { text: "现实投射的梦境", time: 114 },
+            { text: "突然不小心离太近", time: 117 },
+            { text: "不断找寻替代品", time: 120 },
+            { text: "焦虑堆了几百斤", time: 123 },
+            { text: "顾虑将自己的期待禁锢", time: 126 },
+            { text: "可没有幻想谁能妄想完成拼图", time: 129 },
+            { text: "又是谁在半场退出谁在半场进入", time: 132 },
+            { text: "无论谁在观赏谁在半夜完成音符", time: 135 },
+            { text: "唉 希望早日不用再倾诉", time: 138 },
+            { text: "想回到以前 发明足够的开心", time: 141 },
+            { text: "阴天暴雨前 下定足够的决心", time: 144 },
+            { text: "安逸焦虑前 答应足够的决定", time: 147 },
+            { text: "结果没发明 没下定 没答应", time: 150 },
+            { text: "无助无助", time: 153 },
+            { text: "究竟搭上了什么赌注赌注", time: 156 },
+            { text: "以前也不能回到", time: 159 },
+            { text: "以前也不能回到以前将故事全推倒", time: 162 },
+            { text: "有谁能在未来回以前尝后悔的味道", time: 165 },
+            { text: "伤 穿过手心", time: 168 },
+            { text: "刚 锁上手机", time: 171 },
+            { text: "光 光速逃逸地 消失在我眼前", time: 174 },
+            { text: "装 装的简单", time: 177 },
+            { text: "一章一章地连环", time: 180 },
+            { text: "可当 夜晚又会回想起那天的", time: 183 },
+            { text: "雪", time: 186 },
+            { text: "跟着寒风飘旋转的雪", time: 189 },
+            { text: "渐渐高空掉宣判的雪", time: 192 },
+            { text: "求求你来回答我", time: 195 },
+            { text: "这片美丽的枷锁", time: 198 },
+            { text: "难道也算惩罚我", time: 201 },
+            { text: "雪", time: 204 },
+            { text: "跟着寒风飘旋转的雪", time: 207 },
+            { text: "我永远做不到那么坚决", time: 210 },
+            { text: "所以能否回答我", time: 213 },
+            { text: "这片美丽的枷锁", time: 216 },
+            { text: "难道也是惩罚我", time: 219 }
+        ];
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const contentElement = document.getElementById('content');
+        let currentLyricIndex = 0;
+
+        function updateLyrics() {
+            const currentTime = audioPlayer.currentTime;
+            if (currentLyricIndex < lyrics.length && currentTime >= lyrics[currentLyricIndex].time) {
+                contentElement.textContent = lyrics[currentLyricIndex].text;
+                currentLyricIndex++;
+            }
+            requestAnimationFrame(updateLyrics);
+        }
+
+        audioPlayer.addEventListener('play', () => {
+            currentLyricIndex = 0;
+            updateLyrics();
+        });
+
+        audioPlayer.addEventListener('seeked', () => {
+            currentLyricIndex = lyrics.findIndex(lyric => lyric.time > audioPlayer.currentTime) - 1;
+            if (currentLyricIndex < 0) currentLyricIndex = 0;
+            updateLyrics();
+        });
+    </script>
+</body>
+
+</html>
