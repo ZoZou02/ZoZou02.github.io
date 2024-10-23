@@ -35,21 +35,29 @@
             background-position: center;
             filter: blur(5px);
             z-index: -1;
+            transition: transform 0.3s ease;
         }
 
+
+
         #content {
-            font-size: 64px !important;
+            font-size: 48px !important;
             letter-spacing: 10px !important;
             color: #fff !important;
             text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333 !important;
             font-family: 'JetBrains Mono', monospace !important;
-            transition: font-size 0.3s ease-in-out !important;    
+            transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out !important;
+        }
+
+        #content:hover {
+            font-size: 52px !important;
+            transform: scale(1.1);
         }
 
         #audioPlayerContainer {
             position: fixed;
             bottom: 50px;
-            right: 30%;
+            right: 10%;
             background-color: rgb(255, 255, 255);
             padding: 10px;
             border-radius: 5px;
@@ -59,12 +67,31 @@
         #audioPlayer {
             width: 300px;
         }
+
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body>
+    <div id="snow-container"></div>
     <div id="typing">
-        <a id="content"></a>
+        <div id="content"></div>
     </div>
 
     <div id="audioPlayerContainer">
@@ -180,14 +207,74 @@
                 contentElement.textContent += text[index];
                 index++;
                 console.log((lyrics[currentLyricIndex+1].time - audioPlayer.currentTime)/text.length*100);
-                // addNextCharacter(text)
                 setTimeout(() => addNextCharacter(text), (lyrics[currentLyricIndex+1].time - audioPlayer.currentTime)/text.length*100); 
             }
         }
 
+        function createSnowflakes() {
+            const snowContainer = document.getElementById('snow-container');
+            const numberOfSnowflakes = 100;
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.style.width = `${Math.random() * 5 + 2}px`;
+                snowflake.style.height = snowflake.style.width;
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                snowflake.style.animationDelay = `${Math.random() * 2}s`;
+                snowContainer.appendChild(snowflake);
+            }
+        }
+
+        function animateSnowflakes() {
+            const snowflakes = document.querySelectorAll('.snowflake');
+            snowflakes.forEach(snowflake => {
+                const startPosition = parseFloat(snowflake.style.left);
+                const endPosition = startPosition + (Math.random() * 10 - 5);
+                
+                snowflake.animate([
+                    { transform: `translate(0, -10px)`, opacity: 0 },
+                    { opacity: 0.8, offset: 0.1 },
+                    { transform: `translate(${endPosition - startPosition}vw, 100vh)`, opacity: 0 }
+                ], {
+                    duration: parseFloat(snowflake.style.animationDuration) * 1000,
+                    iterations: Infinity
+                });
+            });
+        }
+
+        let snowflakesCreated = false;
+        let snowAnimation;
+
         audioPlayer.addEventListener('play', () => {
+            if (!snowflakesCreated) {
+                createSnowflakes();
+                snowflakesCreated = true;
+            }
+            snowAnimation = requestAnimationFrame(animateSnowflakes);
             currentLyricIndex = 0;
             updateLyrics();
+        });
+
+        audioPlayer.addEventListener('pause', () => {
+            if (snowAnimation) {
+                cancelAnimationFrame(snowAnimation);
+            }
+            const snowflakes = document.querySelectorAll('.snowflake');
+            snowflakes.forEach(snowflake => {
+                snowflake.getAnimations().forEach(animation => animation.pause());
+            });
+        });
+
+        audioPlayer.addEventListener('ended', () => {
+            if (snowAnimation) {
+                cancelAnimationFrame(snowAnimation);
+            }
+            const snowflakes = document.querySelectorAll('.snowflake');
+            snowflakes.forEach(snowflake => {
+                snowflake.getAnimations().forEach(animation => animation.finish());
+            });
         });
 
         audioPlayer.addEventListener('seeked', () => {
