@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -39,26 +38,26 @@
         }
 
         #content {
-            font-size: 64px;
-            letter-spacing: 10px;
-            color: #fff;
-            text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333;
-            font-family: 'JetBrains Mono', monospace;
-            transition: font-size 0.3s ease-in-out;
+            font-size: 64px !important;
+            letter-spacing: 10px !important;
+            color: #fff !important;
+            text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333 !important;
+            font-family: 'JetBrains Mono', monospace !important;
+            transition: font-size 0.3s ease-in-out !important;    
         }
 
         #audioPlayerContainer {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
+            bottom: 50px;
+            right: 30%;
+            background-color: rgb(255, 255, 255);
             padding: 10px;
             border-radius: 5px;
             z-index: 1000;
         }
 
         #audioPlayer {
-            width: 600px;
+            width: 300px;
         }
     </style>
 </head>
@@ -70,7 +69,7 @@
 
     <div id="audioPlayerContainer">
         <audio id="audioPlayer" controls>
-            <source src="D:\develop\myHomePage\ZoZou02.github.io\assets\music\Geebar - 那天的雪.flac" type="audio/mpeg">
+            <source src="../assets/music/Geebar - 那天的雪.mp3" type="audio/mp3">
         </audio>
     </div>
 
