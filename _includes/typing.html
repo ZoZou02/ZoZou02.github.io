@@ -129,10 +129,10 @@
             { text: "安逸焦虑前 答应足够的决定", time: 120 },
             { text: "结果没发明 没下定 没答应", time: 123 },
             { text: "无助无助", time: 126 },
-            { text: "究竟搭上了什么赌注赌注", time: 127 },
+            { text: "究竟搭上了什么赌注赌注", time: 128 },
             { text: "以前也不能回到", time: 131 },
             { text: "以前也不能回到以前将故事全推倒", time: 132 },
-            { text: "有谁能在未来回以前尝后悔的味道", time: 135 },
+            { text: "有谁能在未来回以前尝后悔的味道", time: 135.5 },
             { text: "伤 穿过手心", time: 139 },
             { text: "刚 锁上手机", time: 140.5 },
             { text: "光 光速逃逸地 消失在我眼前", time: 142 },
@@ -163,10 +163,14 @@
         function updateLyrics() {
             const currentTime = audioPlayer.currentTime;
             if (currentLyricIndex < lyrics.length && currentTime >= lyrics[currentLyricIndex].time) {
-                // addNextCharacter();
                 const text = lyrics[currentLyricIndex].text;
-                // contentElement.textContent = lyrics[currentLyricIndex].text;
-                addNextCharacter(text);
+                contentElement.textContent = "";
+                index = 0;
+                if(lyrics[currentLyricIndex+1].time - currentTime < 0.01){
+                    contentElement.textContent = text;
+                }else{  
+                    addNextCharacter(text);
+                }
                 currentLyricIndex++;
             }
             requestAnimationFrame(updateLyrics);
@@ -176,10 +180,10 @@
             if (index < text.length) {
                 contentElement.textContent += text[index];
                 index++;
-                setTimeout(addNextCharacter, 10);
+                console.log((lyrics[currentLyricIndex+1].time - audioPlayer.currentTime)/text.length*100);
+                // addNextCharacter(text)
+                setTimeout(() => addNextCharacter(text), (lyrics[currentLyricIndex+1].time - audioPlayer.currentTime)/text.length*100); 
             }
-            index = 0;
-
         }
 
         audioPlayer.addEventListener('play', () => {
@@ -190,6 +194,8 @@
         audioPlayer.addEventListener('seeked', () => {
             currentLyricIndex = lyrics.findIndex(lyric => lyric.time > audioPlayer.currentTime) - 1;
             if (currentLyricIndex < 0) currentLyricIndex = 0;
+            contentElement.textContent = "";
+            index = 0;
             updateLyrics();
         });
     </script>
