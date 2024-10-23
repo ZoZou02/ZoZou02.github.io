@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>那天的雪</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -43,6 +44,7 @@
             color: #fff;
             text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333;
             font-family: 'JetBrains Mono', monospace;
+            transition: font-size 0.3s ease-in-out;
         }
 
         #audioPlayerContainer {
@@ -56,7 +58,7 @@
         }
 
         #audioPlayer {
-            width: 300px;
+            width: 600px;
         }
     </style>
 </head>
@@ -76,92 +78,108 @@
         const lyrics = [
             { text: "那天的雪——Geebar", time: 0 },
             { text: "已经没别的话语", time: 26 },
-            { text: "BGM循环播放", time: 28 },
-            { text: "天空偷吃的伴侣", time: 29 },
-            { text: "消失没下雨", time: 30 },
-            { text: "卸下的钥匙放桌上", time: 31 },
+            { text: "BGM循环播放", time: 27 },
+            { text: "天空偷吃的伴侣", time: 28.5 },
+            { text: "消失没下雨", time: 29.5 },
+            { text: "卸下的钥匙放桌上", time: 30 },
             { text: "这一生最后的一次", time: 32 },
-            { text: "太匆忙没什么仪式", time: 18 },
-            { text: "我记性差差到了极致", time: 21 },
-            { text: "希望能记住你名字", time: 24 },
-            { text: "可我承诺了不想再回头", time: 27 },
-            { text: "河水干涸也不选择回流", time: 30 },
-            { text: "这一年受够了的迷茫", time: 33 },
-            { text: "离开我 即便皱紧了眉头", time: 36 },
-            { text: "其实很想逃避很想瓦", time: 39 },
-            { text: "撤掉了文竹文昌塔", time: 42 },
-            { text: "其实倒也没有很想打", time: 45 },
-            { text: "但是还能藏在哪儿", time: 48 },
+            { text: "太匆忙没什么仪式", time: 33.5 },
+            { text: "我记性差差到了极致", time: 35 },
+            { text: "希望能记住你名字", time: 36.5 },
+            { text: "可我承诺了不想再回头", time: 38 },
+            { text: "河水干涸也不选择回流", time: 39.5 },
+            { text: "这一年受够了的迷茫", time: 41 },
+            { text: "离开我 即便皱紧了眉头", time: 42.5 },
+            { text: "其实很想逃避很想瓦", time: 44 },
+            { text: "撤掉了文竹文昌塔", time: 45.5 },
+            { text: "其实倒也没有很想打", time: 47 },
+            { text: "但是还能藏在哪儿", time: 49 },
             { text: "伤 穿过手心", time: 51 },
-            { text: "刚 锁上手机", time: 54 },
-            { text: "光 光速逃逸地 消失在我眼前", time: 57 },
-            { text: "装 装的简单", time: 60 },
-            { text: "一章一章地连环", time: 63 },
-            { text: "可当 夜晚又会回想起那天的", time: 66 },
-            { text: "雪", time: 69 },
-            { text: "跟着寒风飘旋转的雪", time: 72 },
-            { text: "渐渐高空掉宣判的雪", time: 75 },
-            { text: "求求你来回答我", time: 78 },
-            { text: "这片美丽的枷锁", time: 81 },
-            { text: "难道也算惩罚我", time: 84 },
-            { text: "雪", time: 87 },
-            { text: "跟着寒风飘旋转的雪", time: 90 },
-            { text: "我永远做不到那么坚决", time: 93 },
-            { text: "所以能否回答我", time: 96 },
-            { text: "这片美丽的枷锁", time: 99 },
-            { text: "难道也是惩罚我", time: 102 },
-            { text: "慢慢冷静", time: 105 },
-            { text: "先慢慢变得冷静", time: 108 },
-            { text: "看清眼前的棱镜", time: 111 },
-            { text: "现实投射的梦境", time: 114 },
-            { text: "突然不小心离太近", time: 117 },
-            { text: "不断找寻替代品", time: 120 },
-            { text: "焦虑堆了几百斤", time: 123 },
-            { text: "顾虑将自己的期待禁锢", time: 126 },
-            { text: "可没有幻想谁能妄想完成拼图", time: 129 },
-            { text: "又是谁在半场退出谁在半场进入", time: 132 },
-            { text: "无论谁在观赏谁在半夜完成音符", time: 135 },
-            { text: "唉 希望早日不用再倾诉", time: 138 },
-            { text: "想回到以前 发明足够的开心", time: 141 },
-            { text: "阴天暴雨前 下定足够的决心", time: 144 },
-            { text: "安逸焦虑前 答应足够的决定", time: 147 },
-            { text: "结果没发明 没下定 没答应", time: 150 },
-            { text: "无助无助", time: 153 },
-            { text: "究竟搭上了什么赌注赌注", time: 156 },
-            { text: "以前也不能回到", time: 159 },
-            { text: "以前也不能回到以前将故事全推倒", time: 162 },
-            { text: "有谁能在未来回以前尝后悔的味道", time: 165 },
-            { text: "伤 穿过手心", time: 168 },
-            { text: "刚 锁上手机", time: 171 },
-            { text: "光 光速逃逸地 消失在我眼前", time: 174 },
-            { text: "装 装的简单", time: 177 },
-            { text: "一章一章地连环", time: 180 },
-            { text: "可当 夜晚又会回想起那天的", time: 183 },
-            { text: "雪", time: 186 },
-            { text: "跟着寒风飘旋转的雪", time: 189 },
-            { text: "渐渐高空掉宣判的雪", time: 192 },
-            { text: "求求你来回答我", time: 195 },
-            { text: "这片美丽的枷锁", time: 198 },
-            { text: "难道也算惩罚我", time: 201 },
-            { text: "雪", time: 204 },
-            { text: "跟着寒风飘旋转的雪", time: 207 },
-            { text: "我永远做不到那么坚决", time: 210 },
-            { text: "所以能否回答我", time: 213 },
-            { text: "这片美丽的枷锁", time: 216 },
-            { text: "难道也是惩罚我", time: 219 }
+            { text: "刚 锁上手机", time: 52.5 },
+            { text: "光 光速逃逸地 消失在我眼前", time: 54 },
+            { text: "装 装的简单", time: 57 },
+            { text: "一章一章地连环", time: 58 },
+            { text: "可当 夜晚又会回想起那天的", time: 60 },
+            { text: "雪", time: 63 },
+            { text: "跟着寒风飘旋转的雪", time: 64 },
+            { text: "渐渐高空掉宣判的雪", time: 67 },
+            { text: "求求你来回答我", time: 70.5 },
+            { text: "这片美丽的枷锁", time: 72 },
+            { text: "难道也算惩罚我", time: 73.5 },
+            { text: "雪", time: 75.5 },
+            { text: "跟着寒风飘旋转的雪", time: 77 },
+            { text: "我永远做不到那么坚决", time: 79.8 },
+            { text: "所以能否回答我", time: 83.3 },
+            { text: "这片美丽的枷锁", time: 84.8 },
+            { text: "难道也是惩罚我", time: 86.3 },
+            { text: "慢慢冷静", time: 88 },
+            { text: "先慢慢变得冷静", time: 89 },
+            { text: "看清眼前的棱镜", time: 90.5 },
+            { text: "现实投射的梦境", time: 92 },
+            { text: "突然不小心离太近", time: 94 },
+            { text: "不断找寻替代品", time: 96 },
+            { text: "焦虑堆了几百斤", time: 98 },
+            { text: "顾虑将自己的期待禁锢", time: 99.3 },
+            { text: "可没有幻想谁能妄想完成拼图", time: 101.3 },
+            { text: "又是谁在半场退出谁在半场进入", time: 104.5 },
+            { text: "无论谁在观赏谁在半夜完成音符", time: 107.5 },
+            { text: "唉 希望早日不用再倾诉", time: 111 },
+            { text: "想回到以前 发明足够的开心", time: 113.5 },
+            { text: "阴天暴雨前 下定足够的决心", time: 116.5 },
+            { text: "安逸焦虑前 答应足够的决定", time: 120 },
+            { text: "结果没发明 没下定 没答应", time: 123 },
+            { text: "无助无助", time: 126 },
+            { text: "究竟搭上了什么赌注赌注", time: 127 },
+            { text: "以前也不能回到", time: 131 },
+            { text: "以前也不能回到以前将故事全推倒", time: 132 },
+            { text: "有谁能在未来回以前尝后悔的味道", time: 135 },
+            { text: "伤 穿过手心", time: 139 },
+            { text: "刚 锁上手机", time: 140.5 },
+            { text: "光 光速逃逸地 消失在我眼前", time: 142 },
+            { text: "装 装的简单", time: 145 },
+            { text: "一章一章地连环", time: 147 },
+            { text: "可当 夜晚又会回想起那天的", time: 148.8 },
+            { text: "雪", time: 151.2 },
+            { text: "跟着寒风飘旋转的雪", time: 153 },
+            { text: "渐渐高空掉宣判的雪", time: 155.5 },
+            { text: "求求你来回答我", time: 158.8 },
+            { text: "这片美丽的枷锁", time: 160.5 },
+            { text: "难道也算惩罚我", time: 162 },
+            { text: "雪", time: 164 },
+            { text: "跟着寒风飘旋转的雪", time: 165.5 },
+            { text: "我永远做不到那么坚决", time: 168.5 },
+            { text: "所以能否回答我", time: 171.5 },
+            { text: "这片美丽的枷锁", time: 173 },
+            { text: "难道也是惩罚我", time: 174.8 },
+            { text: "那天的雪", time: 178 }
         ];
 
         const audioPlayer = document.getElementById('audioPlayer');
         const contentElement = document.getElementById('content');
         let currentLyricIndex = 0;
+        let index = 0;
+
 
         function updateLyrics() {
             const currentTime = audioPlayer.currentTime;
             if (currentLyricIndex < lyrics.length && currentTime >= lyrics[currentLyricIndex].time) {
-                contentElement.textContent = lyrics[currentLyricIndex].text;
+                // addNextCharacter();
+                const text = lyrics[currentLyricIndex].text;
+                // contentElement.textContent = lyrics[currentLyricIndex].text;
+                addNextCharacter(text);
                 currentLyricIndex++;
             }
             requestAnimationFrame(updateLyrics);
+        }
+
+        function addNextCharacter(text) {
+            if (index < text.length) {
+                contentElement.textContent += text[index];
+                index++;
+                setTimeout(addNextCharacter, 10);
+            }
+            index = 0;
+
         }
 
         audioPlayer.addEventListener('play', () => {
