@@ -1,0 +1,78 @@
+<div id="audioPlayerContainer">
+    <div id="audioPlayerControl">
+        <svg id="playPauseIcon" width="48" height="48" viewBox="-6 -2 32 32">
+            <path id="playIcon" d="M10 7.5v15L22.5 15z" fill="#000"/>
+            <path id="pauseIcon" d="M9 22.5h4.5v-15H9v15zm7.5-15v15H21v-15h-4.5z" fill="#000" style="display: none;"/>
+        </svg>
+    </div>
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+    <audio id="audioPlayer">
+        <source src="../assets/music/Geebar - 那天的雪.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+    }
+    #audioPlayerContainer {
+        position: relative;
+        background-color: #fff;
+        border-radius: 30px;
+        width: 300px;
+        height: 50px;
+    }
+    #progressBarContainer {
+        width: 80%;
+        height: 5px;
+        background-color: #ddd;
+        margin: 10px auto;
+        cursor: pointer;
+    }
+    #progressBar {
+        width: 0;
+        height: 100%;
+        background-color: #4CAF50;
+    }
+</style>
+
+<script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioPlayerControl = document.getElementById('audioPlayerControl');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+    const progressBarContainer = document.getElementById('progressBarContainer');
+    const progressBar = document.getElementById('progressBar');
+    
+    audioPlayerControl.addEventListener('click', togglePlay);
+    audioPlayer.addEventListener('timeupdate', updateProgressBar);
+    progressBarContainer.addEventListener('click', seek);
+    
+    function togglePlay() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        } else {
+            audioPlayer.pause();
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+    }
+    
+    function updateProgressBar() {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
+    
+    function seek(event) {
+        const percent = event.offsetX / progressBarContainer.offsetWidth;
+        audioPlayer.currentTime = percent * audioPlayer.duration;
+    }
+</script>
