@@ -45,7 +45,7 @@
             letter-spacing: 10px !important;
             color: #fff !important;
             text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333 !important;
-            font-family: 'JetBrains Mono',monospace, 'Microsoft Yahei','Droid Sans Fallback' !important;
+            font-family: 'JetBrains Mono', monospace, 'Microsoft Yahei', 'Droid Sans Fallback' !important;
             transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out !important;
         }
 
@@ -185,16 +185,16 @@
         let currentLyricIndex = 0;
         let index = 0;
 
-
+        /* 更新歌词 */
         function updateLyrics() {
             const currentTime = audioPlayer.currentTime;
             if (currentLyricIndex < lyrics.length && currentTime >= lyrics[currentLyricIndex].time) {
                 const text = lyrics[currentLyricIndex].text;
                 contentElement.textContent = "";
                 index = 0;
-                if(lyrics[currentLyricIndex+1].time - currentTime < 0.01){
+                if (lyrics[currentLyricIndex + 1].time - currentTime < 0.01) {
                     contentElement.textContent = text;
-                }else{  
+                } else {
                     addNextCharacter(text);
                 }
                 currentLyricIndex++;
@@ -202,15 +202,16 @@
             requestAnimationFrame(updateLyrics);
         }
 
+        /* 添加下一个字符 */
         function addNextCharacter(text) {
             if (index < text.length) {
                 contentElement.textContent += text[index];
                 index++;
-                console.log((lyrics[currentLyricIndex+1].time - audioPlayer.currentTime)/text.length*100);
-                setTimeout(() => addNextCharacter(text), (lyrics[currentLyricIndex+1].time - audioPlayer.currentTime)/text.length*100); 
+                setTimeout(() => addNextCharacter(text), (lyrics[currentLyricIndex + 1].time - audioPlayer.currentTime) / text.length * 100);
             }
         }
 
+        /* 创建雪花 */
         function createSnowflakes() {
             const snowContainer = document.getElementById('snow-container');
             const numberOfSnowflakes = 100;
@@ -227,12 +228,13 @@
             }
         }
 
+        /* 动画雪花 */
         function animateSnowflakes() {
             const snowflakes = document.querySelectorAll('.snowflake');
             snowflakes.forEach(snowflake => {
                 const startPosition = parseFloat(snowflake.style.left);
                 const endPosition = startPosition + (Math.random() * 10 - 5);
-                
+
                 snowflake.animate([
                     { transform: `translate(0, -10px)`, opacity: 0 },
                     { opacity: 0.8, offset: 0.1 },

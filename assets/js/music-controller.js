@@ -1,424 +1,193 @@
-var speed = 0.9;
-var WIDTH;
-var HEIGHT;
-var castleWidth;
-var scale;
-var control = false;
+var audioPlayer = document.querySelector('.green-audio-player');
+var playPause = audioPlayer.querySelector('#playPause');
+var playpauseBtn = audioPlayer.querySelector('.play-pause-btn');
+var loading = audioPlayer.querySelector('.loading');
+var progress = audioPlayer.querySelector('.progress');
+var sliders = audioPlayer.querySelectorAll('.slider');
+var volumeBtn = audioPlayer.querySelector('.volume-btn');
+var volumeControls = audioPlayer.querySelector('.volume-controls');
+var volumeProgress = volumeControls.querySelector('.slider .progress');
+var player = audioPlayer.querySelector('audio');
+var currentTime = audioPlayer.querySelector('.current-time');
+var totalTime = audioPlayer.querySelector('.total-time');
+var speaker = audioPlayer.querySelector('#speaker');
 
-var progress = 0.0;
+var draggableClasses = ['pin'];
+var currentlyDragged = null;
 
-var _castleCont = $('.castle-container');
-var _castle = $('.castle');
+/* 拖动进度条 */
+window.addEventListener('mousedown', function(event) {
+  
+  if(!isDraggable(event.target)) return false;
+  
+  currentlyDragged = event.target;
+  let handleMethod = currentlyDragged.dataset.method;
+  
+  this.addEventListener('mousemove', window[handleMethod], false);
 
-var resize = function() {
-    WIDTH = window.innerWidth;
-    HEIGHT = window.innerHeight;
-    scale = WIDTH / 1440;
-
-    castleWidth = _castle.width() * scale;
-
-    TweenLite.set(_castle, {scale: scale * 0.85});
-};
-resize();
-$(window).on('resize', resize);
-
-
-var draw = function() {
-    requestAnimationFrame(draw);
-
-    progress += 0.0012 * speed;
-    if (progress > 1) progress = 0;
-    if (progress < 0) progress = 1;
-
-    TweenLite.set(_castleCont, {x: (1440 * scale + castleWidth) * -progress + castleWidth / 2, y: 900 * scale * -(0.36 + progress * 0.35)});
-};
-
-$(document).on('mousemove', function(e) {
-    if (!control) return;
-
-    speed = (1 - (e.clientX / WIDTH) * 2) * 2;
-    
-    tl.timeScale(speed);
-    tl2.timeScale(speed);
-    tl3.timeScale(speed);
-    tl4.timeScale(speed);
-    tl5.timeScale(speed);
+  window.addEventListener('mouseup', () => {
+    currentlyDragged = false;
+    window.removeEventListener('mousemove', window[handleMethod], false);
+  }, false);  
 });
 
-$('.control-toggle').on('click', function() {
-    control = !control;
-    $('.container').toggleClass('active');
+playpauseBtn.addEventListener('click', togglePlay);
+player.addEventListener('timeupdate', updateProgress);
+player.addEventListener('volumechange', updateVolume);
+player.addEventListener('loadedmetadata', () => {
+  totalTime.textContent = formatTime(player.duration);
+});
+player.addEventListener('canplay', makePlay);
+player.addEventListener('ended', function(){
+  playPause.attributes.d.value = "M18 12L0 24V0";
+  player.currentTime = 0;
 });
 
-TweenLite.defaultEase = Power1.easeInOut;
+volumeBtn.addEventListener('click', () => {
+  volumeBtn.classList.toggle('open');
+  volumeControls.classList.toggle('hidden');
+})
 
-var cloudIntro = function() {
-    TweenLite.to($('.cloud1'), 20, {x: WIDTH * 2, y: 300 * scale, opacity: 0.3, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud-shadow1'), 20, {x: WIDTH * 2 + 50 * scale, y: 450 * scale, opacity: 0.2, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud-shadow2'), 20, {x: WIDTH * 2 + 50 * scale, y: 450 * scale, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud-shadow3'), 20, {x: WIDTH * 2 + 50 * scale, y: 450 * scale, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud2'), 20, {x: WIDTH * 2, y: 300 * scale, opacity: 0.5, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud3'), 20, {x: WIDTH * 2, y: 300 * scale, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud4'), 20, {x: WIDTH * 2, y: 300 * scale, ease: Linear.easeNone, force3D: true});
-    TweenLite.to($('.cloud5'), 20, {x: WIDTH * 2, y: 300 * scale, ease: Linear.easeNone, force3D: true, onComplete: function() {
-        $('.clouds').remove();
-    }});
-};
+window.addEventListener('resize', directionAware);
 
-var init = function() {
-    TweenLite.to($('.load-gate'), 0.5, {opacity: 0, onComplete: function() {
-        $('.load-gate').remove();
-    }});
-    requestAnimationFrame(draw);
-    cloudIntro();
-};
-if (document.readyState == 'complete') {
-    init();
-} else {
-    $(window).load(init);
-};
+sliders.forEach(slider => {
+  let pin = slider.querySelector('.pin');
+  slider.addEventListener('click', window[pin.dataset.method]);
+});
 
-TweenMax.to($('.cloud-bg'), 40, {x: WIDTH * 2, y: 200 * scale, ease: Linear.easeNone, repeat: -1, force3D: true, onRepeat: function() {
-    TweenLite.set(this.target[0], {y: Math.random() * 200 - 100, rotationZ: Math.round(Math.random() * 60) - 30, scaleX: Math.random() > 0.5 ? 1 : -1});
-}});
+directionAware();
 
-TweenMax.to($('.cloud-bg2'), 40, {x: WIDTH * 2, y: 200 * scale, ease: Linear.easeNone, delay: 10, repeat: -1, force3D: true, onRepeat: function() {
-    TweenLite.set(this.target[0], {y: Math.random() * 200 - 100, rotationZ: Math.round(Math.random() * 60) - 30, scaleX: Math.random() > 0.5 ? 1 : -1});
-}});
+/* 是否可拖动 */
+function isDraggable(el) {
+  let canDrag = false;
+  let classes = Array.from(el.classList);
+  draggableClasses.forEach(draggable => {
+    if(classes.indexOf(draggable) !== -1)
+      canDrag = true;
+  })
+  return canDrag;
+}
 
-var tl = new TimelineMax({repeat: -1, onReverseComplete: function() {this.seek(tl.duration())}});
+/* 是否在范围内 */
+function inRange(event) {
+  let rangeBox = getRangeBox(event);
+  let rect = rangeBox.getBoundingClientRect();
+  let direction = rangeBox.dataset.direction;
+  if(direction == 'horizontal') {
+    var min = rangeBox.offsetLeft;
+    var max = min + rangeBox.offsetWidth;   
+    if(event.clientX < min || event.clientX > max) return false;
+  } else {
+    var min = rect.top;
+    var max = min + rangeBox.offsetHeight; 
+    if(event.clientY < min || event.clientY > max) return false;  
+  }
+  return true;
+}
 
-var _flleg = $('.flleg');
-var _flbottomGroup = $('.flbottom-group');
-var _flfoot = $('.flfoot');
+/* 更新进度 */
+function updateProgress() {
+  var current = player.currentTime;
+  var percent = (current / player.duration) * 100;
+  progress.style.width = percent + '%';
+  
+  currentTime.textContent = formatTime(current);
+}
 
-TweenLite.set(_flleg, {rotationZ: 45, x: -5});
-TweenLite.set(_flbottomGroup, {rotationZ: 5});
-TweenLite.set(_flfoot, {rotationZ: -50});
+/* 更新音量 */
+function updateVolume() {
+  volumeProgress.style.height = player.volume * 100 + '%';
+  if(player.volume >= 0.5) {
+    speaker.attributes.d.value = 'M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z';  
+  } else if(player.volume < 0.5 && player.volume > 0.05) {
+    speaker.attributes.d.value = 'M0 7.667v8h5.333L12 22.333V1L5.333 7.667M17.333 11.373C17.333 9.013 16 6.987 14 6v10.707c2-.947 3.333-2.987 3.333-5.334z';
+  } else if(player.volume <= 0.05) {
+    speaker.attributes.d.value = 'M0 7.667v8h5.333L12 22.333V1L5.333 7.667';
+  }
+}
 
-tl.add([
-    TweenLite.to(_flleg, 1.0, {rotationZ: -45, delay: 0.0, force3D: true}),
+/* 获取范围框 */
+function getRangeBox(event) {
+  let rangeBox = event.target;
+  let el = currentlyDragged;
+  if(event.type == 'click' && isDraggable(event.target)) {
+    rangeBox = event.target.parentElement.parentElement;
+  }
+  if(event.type == 'mousemove') {
+    rangeBox = el.parentElement.parentElement;
+  }
+  return rangeBox;
+}
 
-    TweenLite.to(_flleg, 0.2, {x: 0, delay: 0.0, ease: Power1.easeOut, force3D: true}),
-
-    TweenLite.to(_flleg, 0.55, {scaleY: 0.8, delay: 0.0, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.55, {scaleY: 0.8, delay: 0.0, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.6, {rotationZ: 20, delay: 0.0, ease: Power3.easeIn, force3D: true}),
-    TweenLite.to(_flfoot, 0.55, {scaleY: 1.5, delay: 0.0, force3D: true}),
-    TweenLite.to(_flfoot, 0.6, {rotationZ: 10, delay: 0.0, ease: Power2.easeIn, force3D: true}),
+/* 获取系数 */
+function getCoefficient(event) {
+  let slider = getRangeBox(event);
+  let rect = slider.getBoundingClientRect();
+  let K = 0;
+  if(slider.dataset.direction == 'horizontal') {
     
-    TweenLite.to(_flleg, 0.4, {scaleY: 1.0, delay: 0.6, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.4, {scaleY: 0.7, delay: 0.6, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.4, {rotationZ: 50, delay: 0.6, force3D: true}),
-    TweenLite.to(_flfoot, 0.2, {rotationZ: 10, delay: 0.6, ease: Linear.easeNone, force3D: true}),
-    TweenLite.to(_flfoot, 0.2, {rotationZ: -10, delay: 0.8, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_flfoot, 0.4, {scaleY: 1.5, delay: 0.6, force3D: true}),
+    let offsetX = event.clientX - slider.offsetLeft;
+    let width = slider.clientWidth;
+    K = offsetX / width;    
     
-    TweenLite.to(_flleg, 0.6, {x: 20, delay: 0.7, force3D: true}),
-
-    TweenLite.to(_flleg, 0.5, {rotationZ: 0, delay: 1.0, ease: Power1.easeIn, force3D: true}),
-    TweenLite.to(_flleg, 0.5, {scaleY: 0.8, delay: 1.0, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.5, {scaleY: 0.5, delay: 1.0, force3D: true}),
-    TweenLite.to(_flfoot, 0.5, {scaleX: 1.8, scaleY: 1.7, delay: 1.0, ease: Power1.easeIn, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.5, {rotationZ: 40, delay: 1.0, force3D: true}),
-    TweenLite.to(_flfoot, 0.5, {rotationZ: -70, delay: 1.0, force3D: true}),
-
-    TweenLite.to(_flleg, 0.5, {rotationZ: 45, delay: 1.5, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_flleg, 0.5, {scaleY: 1.0, delay: 1.5, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.5, {scaleY: 1.0, delay: 1.5, force3D: true}),
-    TweenLite.to(_flbottomGroup, 0.5, {rotationZ: 5, delay: 1.5, force3D: true}),
-    TweenLite.to(_flfoot, 0.5, {rotationZ: -50, delay: 1.5, force3D: true}),
-    TweenLite.to(_flfoot, 0.5, {scaleX: 1.0, scaleY: 1.0, delay: 1.5, force3D: true}),
-
-    TweenLite.to(_flleg, 0.5, {x: -10, delay: 1.3, force3D: true}),
-
-    TweenLite.to(_flleg, 0.2, {x: -5, delay: 1.8, ease: Power1.easeIn, force3D: true}),
-]); 
-
-var tl2 = new TimelineMax({repeat: -1, delay: 0.7, onReverseComplete: function() {this.seek(tl2.duration())}});
-
-var _blleg = $('.blleg');
-var _blbottomGroup = $('.blbottom-group');
-var _blfoot = $('.blfoot');
-
-TweenLite.set(_blleg, {rotationZ: 45, x: -5});
-TweenLite.set(_blbottomGroup, {rotationZ: 5});
-TweenLite.set(_blfoot, {rotationZ: -50});
-
-tl2.add([
-    TweenLite.to(_blleg, 1.0, {rotationZ: -45, delay: 0.0, force3D: true}),
-
-    TweenLite.to(_blleg, 0.2, {x: 0, delay: 0.0, ease: Power1.easeOut, force3D: true}),
-
-    TweenLite.to(_blleg, 0.55, {scaleY: 0.8, delay: 0.0, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.55, {scaleY: 0.8, delay: 0.0, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.6, {rotationZ: 20, delay: 0.0, ease: Power3.easeIn, force3D: true}),
-    TweenLite.to(_blfoot, 0.55, {scaleY: 1.5, delay: 0.0, force3D: true}),
-    TweenLite.to(_blfoot, 0.6, {rotationZ: 10, delay: 0.0, ease: Power2.easeIn, force3D: true}),
+  } else if(slider.dataset.direction == 'vertical') {
     
-    TweenLite.to(_blleg, 0.4, {scaleY: 1.0, delay: 0.6, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.4, {scaleY: 0.7, delay: 0.6, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.4, {rotationZ: 50, delay: 0.6, force3D: true}),
-    TweenLite.to(_blfoot, 0.2, {rotationZ: 10, delay: 0.6, ease: Linear.easeNone, force3D: true}),
-    TweenLite.to(_blfoot, 0.2, {rotationZ: -10, delay: 0.8, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_blfoot, 0.4, {scaleY: 1.5, delay: 0.6, force3D: true}),
+    let height = slider.clientHeight;
+    var offsetY = event.clientY - rect.top;
+    K = 1 - offsetY / height;
     
-    TweenLite.to(_blleg, 0.6, {x: 20, delay: 0.7, force3D: true}),
+  }
+  return K;
+}
 
-    TweenLite.to(_blleg, 0.5, {rotationZ: 0, delay: 1.0, ease: Power1.easeIn, force3D: true}),
-    TweenLite.to(_blleg, 0.5, {scaleY: 0.8, delay: 1.0, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.5, {scaleY: 0.5, delay: 1.0, force3D: true}),
-    TweenLite.to(_blfoot, 0.5, {scaleX: 1.8, scaleY: 1.7, delay: 1.0, ease: Power1.easeIn, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.5, {rotationZ: 40, delay: 1.0, force3D: true}),
-    TweenLite.to(_blfoot, 0.5, {rotationZ: -70, delay: 1.0, force3D: true}),
+/* 倒带 */
+function rewind(event) {
+  if(inRange(event)) {
+    player.currentTime = player.duration * getCoefficient(event);
+  }
+}
 
-    TweenLite.to(_blleg, 0.5, {rotationZ: 45, delay: 1.5, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_blleg, 0.5, {scaleY: 1.0, delay: 1.5, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.5, {scaleY: 1.0, delay: 1.5, force3D: true}),
-    TweenLite.to(_blbottomGroup, 0.5, {rotationZ: 5, delay: 1.5, force3D: true}),
-    TweenLite.to(_blfoot, 0.5, {rotationZ: -50, delay: 1.5, force3D: true}),
-    TweenLite.to(_blfoot, 0.5, {scaleX: 1.0, scaleY: 1.0, delay: 1.5, force3D: true}),
+/* 改变音量 */
+function changeVolume(event) {
+  if(inRange(event)) {
+    player.volume = getCoefficient(event);
+  }
+}
 
-    TweenLite.to(_blleg, 0.5, {x: -10, delay: 1.3, force3D: true}),
+/* 格式化时间 */
+function formatTime(time) {
+  var min = Math.floor(time / 60);
+  var sec = Math.floor(time % 60);
+  return min + ':' + ((sec<10) ? ('0' + sec) : sec);
+}
 
-    TweenLite.to(_blleg, 0.2, {x: -5, delay: 1.8, ease: Power1.easeIn, force3D: true}),
-]);
+/* 播放暂停 */
+function togglePlay() {
+  if(player.paused) {
+    playPause.attributes.d.value = "M0 0h6v24H0zM12 0h6v24h-6z";
+    player.play();
+  } else {
+    playPause.attributes.d.value = "M18 12L0 24V0";
+    player.pause();
+  }  
+}
 
+/* 播放 */
+function makePlay() {
+  playpauseBtn.style.display = 'block';
+  loading.style.display = 'none';
+}
 
-
-var tl3 = new TimelineMax({repeat: -1, delay: 1.0, onReverseComplete: function() {this.seek(tl3.duration())}});
-
-var _frleg = $('.frleg');
-var _frfoot = $('.frfoot');
-
-TweenLite.set(_frleg, {rotationZ: 35, x: -40});
-TweenLite.set(_frfoot, {rotationZ: -35});
-
-tl3.add([
-    TweenLite.to(_frleg, 0.9, {rotationZ: -35, delay: 0.0, force3D: true}),
-    TweenLite.to(_frleg, 1.2, {x: 40, delay: 0.0, ease: Power1.easeOut, force3D: true}),
-
-    TweenLite.to(_frfoot, 0.9, {rotationZ: 35, delay: 0.0, force3D: true}),
-    
-    TweenLite.to(_frleg, 0.4, {y: -15, delay: 0.0, ease: Power1.easeIn, force3D: true}),
-    TweenLite.to(_frleg, 0.4, {y: 0, delay: 0.5, ease: Power1.easeOut, force3D: true}),
-
-    TweenLite.to(_frleg, 1.1, {rotationZ: 35, delay: 0.9, force3D: true}),
-    TweenLite.to(_frleg, 0.6, {x: -50, delay: 1.2, force3D: true}),
-    
-    TweenLite.to(_frfoot, 0.5, {rotationZ: -50, delay: 0.9, force3D: true}),
-    TweenLite.to(_frfoot, 0.3, {rotationZ: -35, delay: 1.7, force3D: true}),
-
-    TweenLite.to(_frleg, 0.6, {y: -40, delay: 0.9, force3D: true}),
-    TweenLite.to(_frleg, 0.5, {y: 0, delay: 1.5, force3D: true}),
-    
-    TweenLite.to(_frleg, 0.2, {x: -40, delay: 1.8, ease: Power1.easeIn, force3D: true}),
-]);
-
-
-var tl4 = new TimelineMax({repeat: -1, delay: 1.7, onReverseComplete: function() {this.seek(tl4.duration())}});
-
-var _brleg = $('.brleg');
-var _brfoot = $('.brfoot');
-
-TweenLite.set(_brleg, {rotationZ: 35, x: -40});
-TweenLite.set(_brfoot, {rotationZ: -35});
-
-tl4.add([
-    TweenLite.to(_brleg, 0.9, {rotationZ: -35, delay: 0.0, force3D: true}),
-    TweenLite.to(_brleg, 1.2, {x: 40, delay: 0.0, ease: Power1.easeOut, force3D: true}),
-
-    TweenLite.to(_brfoot, 0.9, {rotationZ: 35, delay: 0.0, force3D: true}),
-    
-    TweenLite.to(_brleg, 0.4, {y: -15, delay: 0.0, ease: Power1.easeIn, force3D: true}),
-    TweenLite.to(_brleg, 0.4, {y: 0, delay: 0.5, ease: Power1.easeOut, force3D: true}),
-
-    TweenLite.to(_brleg, 1.1, {rotationZ: 35, delay: 0.9, force3D: true}),
-    TweenLite.to(_brleg, 0.6, {x: -50, delay: 1.2, force3D: true}),
-    
-    TweenLite.to(_brfoot, 0.5, {rotationZ: -50, delay: 0.9, force3D: true}),
-    TweenLite.to(_brfoot, 0.3, {rotationZ: -35, delay: 1.7, force3D: true}),
-
-    TweenLite.to(_brleg, 0.6, {y: -40, delay: 0.9, force3D: true}),
-    TweenLite.to(_brleg, 0.5, {y: 0, delay: 1.5, force3D: true}),
-    
-    TweenLite.to(_brleg, 0.2, {x: -40, delay: 1.8, ease: Power1.easeIn, force3D: true}),
-]);
-
-
-var tl5 = new TimelineMax({repeat: -1, delay: 0.0, onReverseComplete: function() {this.seek(tl5.duration())}});
-var _castle = $('.castle');
-TweenLite.set(_castle, {rotationZ: 9});
-tl5.add([
-    TweenLite.to(_castle, 1.0, {rotationZ: 7, delay: 0.0, force3D: true}),
-    TweenLite.to(_castle, 1.0, {rotationZ: 9, delay: 1.0, force3D: true}),
-    
-    TweenLite.to(_castle, 0.5, {x: '+=' + 2 * scale, y: '-=' + 4 * scale, delay: 0.0, force3D: true}),
-    TweenLite.to(_castle, 0.5, {x: '-=' + 4 * scale, y: '+=' + 4 * scale, delay: 0.5, force3D: true}),
-    TweenLite.to(_castle, 0.5, {x: '+=' + 4 * scale, y: '-=' + 5 * scale, delay: 1.0, force3D: true}),
-    TweenLite.to(_castle, 0.5, {x: '-=' + 2 * scale, y: '+=' + 5 * scale, delay: 1.5, force3D: true}),
-]);
-
-var tl6 = new TimelineMax({repeat: -1, delay: 0.2});
-var _mound = $('.mound-group');
-TweenLite.set(_mound, {rotationZ: 2});
-tl6.add([
-    TweenLite.to(_mound, 1.0, {rotationZ: -1, delay: 0.0, force3D: true}),
-    TweenLite.to(_mound, 1.0, {rotationZ: 2, delay: 1.0, force3D: true}),
-]);
-
-var tl7 = new TimelineMax({repeat: -1, delay: 0.8});
-var _wing = $('.wing');
-TweenLite.set(_wing, {rotationZ: 2});
-tl7.add([
-    TweenLite.to(_wing, 1.0, {rotationZ: -1, x: -5, delay: 0.0, force3D: true}),
-    TweenLite.to(_wing, 1.0, {rotationZ: 2, x: 0, delay: 1.0, force3D: true}),
-]);
-
-var tl8 = new TimelineMax({repeat: -1, delay: 0.0});
-var _chimney1 = $('.chimney1');
-TweenLite.set(_chimney1, {rotationZ: -10});
-tl8.add([
-    TweenLite.to(_chimney1, 1.5, {rotationZ: 5, delay: 0.0, force3D: true}),
-    
-    TweenLite.to(_chimney1, 1.5, {rotationZ: -10, delay: 1.5, force3D: true}),
-
-    TweenLite.to(_chimney1, 0.5, {y: 5, x: 0, delay: 0.1, force3D: true}),
-    TweenLite.to(_chimney1, 0.1, {y: -15, x: 4, delay: 0.6, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_chimney1, 0.9, {y: 0, x: 0, delay: 0.7, force3D: true}),
-
-    TweenLite.to(_chimney1, 0.5, {y: 5, x: 0, delay: 1.6, force3D: true}),
-    TweenLite.to(_chimney1, 0.1, {y: -15, x: 4, delay: 2.1, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_chimney1, 0.5, {y: 0, x: 0, delay: 2.2, force3D: true}),
-]);
-
-var tl9 = new TimelineMax({repeat: -1, delay: 0.5});
-var _chimney2 = $('.chimney2');
-TweenLite.set(_chimney2, {rotationZ: -10});
-tl9.add([
-    TweenLite.to(_chimney2, 1.5, {rotationZ: 5, delay: 0.0, force3D: true}),
-    
-    TweenLite.to(_chimney2, 1.5, {rotationZ: -10, delay: 1.5, force3D: true}),
-
-    TweenLite.to(_chimney2, 0.5, {y: 5, x: 0, delay: 0.1, force3D: true}),
-    TweenLite.to(_chimney2, 0.1, {y: -15, x: 4, delay: 0.6, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_chimney2, 0.9, {y: 0, x: 0, delay: 0.7, force3D: true}),
-
-    TweenLite.to(_chimney2, 0.5, {y: 5, x: 0, delay: 1.6, force3D: true}),
-    TweenLite.to(_chimney2, 0.1, {y: -15, x: 4, delay: 2.1, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_chimney2, 0.5, {y: 0, x: 0, delay: 2.2, force3D: true}),
-]);
-
-var tl10 = new TimelineMax({repeat: -1, delay: 1.1});
-var _chimney3 = $('.chimney3');
-TweenLite.set(_chimney3, {rotationZ: -10});
-tl10.add([
-    TweenLite.to(_chimney3, 1.5, {rotationZ: 5, delay: 0.0, force3D: true}),
-    
-    TweenLite.to(_chimney3, 1.5, {rotationZ: -10, delay: 1.5, force3D: true}),
-
-    TweenLite.to(_chimney3, 0.5, {y: 5, x: 0, delay: 0.1, force3D: true}),
-    TweenLite.to(_chimney3, 0.1, {y: -15, x: 4, delay: 0.6, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_chimney3, 0.9, {y: 0, x: 0, delay: 0.7, force3D: true}),
-
-    TweenLite.to(_chimney3, 0.5, {y: 5, x: 0, delay: 1.6, force3D: true}),
-    TweenLite.to(_chimney3, 0.1, {y: -15, x: 4, delay: 2.1, ease: Power1.easeOut, force3D: true}),
-    TweenLite.to(_chimney3, 0.5, {y: 0, x: 0, delay: 2.2, force3D: true}),
-]);
-
-var tl11 = new TimelineMax({repeat: -1, delay: 0.5});
-var _houses = $('.houses-group');
-var _point1 = $('.point1');
-var _point2 = $('.point2');
-TweenLite.set(_houses, {rotationZ: 2, x: -4});
-TweenLite.set(_point1, {rotationZ: 2, x: -2});
-tl11.add([
-    TweenLite.to(_houses, 1.0, {rotationZ: -1, y: 5, x: 0, delay: 0.0, force3D: true}),
-    TweenLite.to(_houses, 1.0, {rotationZ: 2, y: 0, x: -4, delay: 1.0, force3D: true}),
-
-    TweenLite.to(_point1, 1.0, {rotationZ: -10, y: 2, x: 0, delay: 0.0, force3D: true}),
-    TweenLite.to(_point1, 1.0, {rotationZ: 2, y: 0, x: -2, delay: 1.0, force3D: true}),
-
-    TweenLite.to(_point2, 1.0, {rotationZ: -5, y: 5, x: 2, delay: 0.0, force3D: true}),
-    TweenLite.to(_point2, 1.0, {rotationZ: 0, y: 0, x: 0, delay: 1.0, force3D: true}),
-]);
-
-var tl12 = new TimelineMax({repeat: -1, delay: 0.45});
-var _point4 = $('.point4');
-var _point5 = $('.point5');
-var _point6 = $('.point6');
-tl12.add([
-    TweenLite.to(_point6, 0.3, {y: 3, delay: 0.0, force3D: true}),
-    TweenLite.to(_point6, 0.1, {y: -10, x: 4, delay: 0.3, force3D: true}),
-    TweenLite.to(_point6, 0.9, {y: 0, x: 0, delay: 0.4, force3D: true}),
-
-    TweenLite.to(_point5, 0.3, {y: 3, delay: 0.2, force3D: true}),
-    TweenLite.to(_point5, 0.1, {y: -7, x: 3, delay: 0.5, force3D: true}),
-    TweenLite.to(_point5, 0.7, {y: 0, x: 0, delay: 0.6, force3D: true}),
-
-    TweenLite.to(_point4, 0.3, {y: 3, delay: 0.4, force3D: true}),
-    TweenLite.to(_point4, 0.1, {y: -10, x: 4, delay: 0.7, force3D: true}),
-    TweenLite.to(_point4, 0.7, {y: 0, x: 0, delay: 0.8, force3D: true}),
-]);
-
-var tl13 = new TimelineMax({repeat: -1, delay: 1.4});
-var _treehouse = $('.treehouse');
-TweenLite.set(_treehouse, {rotationZ: -5, y: 20, x: 4});
-tl13.add([
-    TweenLite.to(_treehouse, 1.0, {rotationZ: 10, delay: 0.0, force3D: true}),
-    TweenLite.to(_treehouse, 1.0, {rotationZ: -5, delay: 1.0, force3D: true}),
-    TweenLite.to(_treehouse, 1.0, {rotationZ: 10, delay: 2.0, force3D: true}),
-    TweenLite.to(_treehouse, 1.0, {rotationZ: -5, delay: 3.0, force3D: true}),
-    
-    TweenLite.to(_treehouse, 0.4, {y: -5, x: -2, delay: 0.2, force3D: true}),
-    TweenLite.to(_treehouse, 3.2, {y: 20, x: 4, delay: 0.8, force3D: true}),
-]);
-
-var tl14 = new TimelineMax({repeat: -1, delay: 0.65});
-var _wind = $('.wind');
-var _antenna = $('.antenna');
-var _cannon = $('.cannon');
-var _tele = $('.tele');
-var _knob = $('.knob');
-TweenLite.set(_antenna, {rotationZ: 10, x: 0});
-TweenLite.set(_wind, {rotationZ: -10, x: 0});
-TweenLite.set(_knob, {rotationZ: -20, x: 0});
-tl14.add([
-    TweenLite.to(_antenna, 1.0, {rotationZ: -5, x: 0, delay: 0.0, force3D: true}),
-    TweenLite.to(_antenna, 1.0, {rotationZ: 10, x: 5, delay: 1.0, force3D: true}),
-    TweenLite.to(_antenna, 1.0, {rotationZ: -10, x: -5, delay: 2.0, force3D: true}),
-    TweenLite.to(_antenna, 1.0, {rotationZ: 10, x: 0, delay: 3.0, force3D: true}),
-
-    TweenLite.to(_wind, 1.1, {rotationZ: 5, delay: 0.0, force3D: true}),
-    TweenLite.to(_wind, 1.0, {rotationZ: -15, delay: 1.1, force3D: true}),
-    TweenLite.to(_wind, 1.0, {rotationZ: 10, delay: 2.1, force3D: true}),
-    TweenLite.to(_wind, 0.9, {rotationZ: -10, delay: 3.1, force3D: true}),
-
-    TweenLite.to(_knob, 0.2, {rotationZ: 50, delay: 0.0, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: -20, delay: 0.3, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: 45, delay: 0.7, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: -25, delay: 1.0, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: 30, delay: 1.5, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: 0, delay: 1.9, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: -20, delay: 2.2, force3D: true}),
-    TweenLite.to(_knob, 0.3, {rotationZ: 60, delay: 2.6, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: -10, delay: 3.0, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: 40, delay: 3.4, force3D: true}),
-    TweenLite.to(_knob, 0.2, {rotationZ: -20, delay: 3.7, force3D: true}),
-    
-    TweenLite.to(_tele, 1.0, {rotationZ: -3, delay: 0.0, force3D: true}),
-    TweenLite.to(_tele, 1.0, {rotationZ: 2, delay: 1.0, force3D: true}),
-    TweenLite.to(_tele, 1.0, {rotationZ: -3, delay: 2.0, force3D: true}),
-    TweenLite.to(_tele, 1.0, {rotationZ: 0, delay: 3.0, force3D: true}),
-
-    TweenLite.to(_tele, 0.25, {x: 25, y: 4, delay: 0.6, force3D: true}),
-    TweenLite.to(_tele, 2.5, {x: 0, y: 0, delay: 0.9, force3D: true}),
-
-    TweenLite.to(_cannon, 0.9, {rotationZ: -7, delay: 0.0, force3D: true}),
-    TweenLite.to(_cannon, 0.9, {rotationZ: 2, delay: 0.9, force3D: true}),
-    TweenLite.to(_cannon, 1.1, {rotationZ: -5, delay: 1.8, force3D: true}),
-    TweenLite.to(_cannon, 1.1, {rotationZ: 0, delay: 2.9, force3D: true}),
-
-    TweenLite.to(_cannon, 0.25, {x: 30, y: 4, delay: 0.85, force3D: true}),
-    TweenLite.to(_cannon, 2.6, {x: 0, y: 0, delay: 1.4, force3D: true}),
-]);
+/* 方向感知 */
+function directionAware() {
+  if(window.innerHeight < 250) {
+    volumeControls.style.bottom = '-54px';
+    volumeControls.style.left = '54px';
+  } else if(audioPlayer.offsetTop < 154) {
+    volumeControls.style.bottom = '-164px';
+    volumeControls.style.left = '-3px';
+  } else {
+    volumeControls.style.bottom = '52px';
+    volumeControls.style.left = '-3px';
+  }
+}
