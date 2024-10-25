@@ -1,13 +1,15 @@
 <div id="audioPlayerContainer">
     <div id="audioPlayerControl">
-        <svg id="playPauseIcon" width="48" height="48" viewBox="-6 -2 32 32">
-            <path id="playIcon" d="M10 7.5v15L22.5 15z" fill="#000"/>
-            <path id="pauseIcon" d="M9 22.5h4.5v-15H9v15zm7.5-15v15H21v-15h-4.5z" fill="#000" style="display: none;"/>
+        <svg id="playPauseIcon" width="40" height="48" viewBox="-6 -2 32 32">
+            <path id="playIcon" d="M10 7.5v15L22.5 15z" fill="#fd2d5c" />
+            <path id="pauseIcon" d="M9 22.5h4.5v-15H9v15zm7.5-15v15H21v-15h-4.5z" fill="#fd2d5c"
+                style="display: none;" />
         </svg>
+        <div id="progressBarContainer">
+            <div id="progressBar"></div>
+        </div>
     </div>
-    <div id="progressBarContainer">
-        <div id="progressBar"></div>
-    </div>
+
     <audio id="audioPlayer">
         <source src="../assets/music/Geebar - 那天的雪.mp3" type="audio/mp3">
     </audio>
@@ -19,41 +21,90 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #000;
     }
+
+    path {
+        filter: drop-shadow(0px 1px 3px rgba(107, 107, 107, 0.5));
+    }
+
     #audioPlayerContainer {
+        min-width: 300px;
         position: relative;
         background-color: #fff;
         border-radius: 30px;
         width: 300px;
         height: 50px;
+        box-shadow: 0 0px 20px 0px rgba(107, 107, 107, 0.5);
     }
+
     #progressBarContainer {
-        width: 80%;
+        position: absolute;
+        top: 45%;
+        left: 15%;
+        width: 75%;
         height: 5px;
-        background-color: #ddd;
-        margin: 10px auto;
+        background: linear-gradient(to right, #fd2d5c var(--progress, 0%), #ddd var(--progress, 0%));
+        border-radius: 5px;
         cursor: pointer;
     }
+
+    #progressBarContainer::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        transform: translateY(-50%);
+        background-color: transparent;
+    }
+
     #progressBar {
-        width: 0;
+        position: relative;
+        width: 0%;
         height: 100%;
-        background-color: #4CAF50;
+        border-radius: 5px;
+    }
+
+    #progressBar::after {
+        content: '';
+        position: absolute;
+        right: -7.5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        background-color: #fd2d5c;
+        box-shadow: 0 1px 10px 1px rgba(107, 107, 107, 0.5);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    #progressBarContainer:hover #progressBar::after {
+        opacity: 1;
     }
 </style>
 
 <script>
     const audioPlayer = document.getElementById('audioPlayer');
     const audioPlayerControl = document.getElementById('audioPlayerControl');
+    const playPauseIcon = document.getElementById('playPauseIcon');
     const playIcon = document.getElementById('playIcon');
     const pauseIcon = document.getElementById('pauseIcon');
     const progressBarContainer = document.getElementById('progressBarContainer');
     const progressBar = document.getElementById('progressBar');
-    
-    audioPlayerControl.addEventListener('click', togglePlay);
+    let isDragging = false;
+
+    playPauseIcon.addEventListener('click', togglePlay);
     audioPlayer.addEventListener('timeupdate', updateProgressBar);
     progressBarContainer.addEventListener('click', seek);
-    
+    audioPlayer.addEventListener('ended', resetPlayer);
+
+    progressBarContainer.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', endDrag);
+
     function togglePlay() {
         if (audioPlayer.paused) {
             audioPlayer.play();
@@ -65,14 +116,49 @@
             pauseIcon.style.display = 'none';
         }
     }
-    
+
     function updateProgressBar() {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        progressBar.style.width = `${progress}%`;
+        if (!isDragging) {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressBarContainer.style.setProperty('--progress', `${progress}%`);
+        }
     }
-    
+
     function seek(event) {
         const percent = event.offsetX / progressBarContainer.offsetWidth;
         audioPlayer.currentTime = percent * audioPlayer.duration;
     }
+
+    function resetPlayer() {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        progressBar.style.width = '0%';
+        progressBarContainer.style.setProperty('--progress', '0%');
+        audioPlayer.currentTime = 0;
+    }
+
+    function startDrag(event) {
+        isDragging = true;
+        drag(event);
+    }
+
+    function drag(event) {
+        if (isDragging) {
+            const containerRect = progressBarContainer.getBoundingClientRect();
+            const percent = Math.min(Math.max((event.clientX - containerRect.left) / containerRect.width, 0), 1);
+            progressBar.style.width = `${percent * 100}%`;
+            progressBarContainer.style.setProperty('--progress', `${percent * 100}%`);
+        }
+    }
+
+    function endDrag(event) {
+        if (isDragging) {
+            isDragging = false;
+            const containerRect = progressBarContainer.getBoundingClientRect();
+            const percent = Math.min(Math.max((event.clientX - containerRect.left) / containerRect.width, 0), 1);
+            audioPlayer.currentTime = percent * audioPlayer.duration;
+        }
+    }
 </script>
+

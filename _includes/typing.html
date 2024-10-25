@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/music-controller.css">
     <title>那天的雪</title>
     <style>
         body,
@@ -11,6 +12,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         #typing {
@@ -47,6 +49,7 @@
             text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333 !important;
             font-family: 'JetBrains Mono', monospace, 'Microsoft Yahei', 'Droid Sans Fallback' !important;
             transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out !important;
+            font-weight: bold !important;
         }
 
         #content:hover {
@@ -54,22 +57,14 @@
             transform: scale(1.1);
         }
 
-        #audioPlayerContainer {
-            position: fixed;
-            bottom: 50px;
-            right: 10%;
-            background-color: rgb(241, 243, 244);
-            padding: 10px;
-            border-radius: 5px;
+        .audioBox {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 1;
             z-index: 1000;
-        }
-
-        #audioPlayer {
-            width: 300px;
-        }
-
-        #audioPlayerControl {
-            width: 300px;
         }
 
         #snow-container {
@@ -98,16 +93,32 @@
         <div id="content">那天的雪</div>
     </div>
 
-    <div id="audioPlayerContainer">
-        <div id="audioPlayerControl"></div>
-        <audio id="audioPlayer">
-            <source src="../assets/music/Geebar - 那天的雪.mp3" type="audio/mp3">
-        </audio>
+    <div class="audioBox">
+        <div id="audioPlayerContainer">
+            <div id="audioPlayerControl">
+                <svg id="playPauseIcon" width="40" height="48" viewBox="-6 -2 32 32">
+                    <path id="playIcon" d="M10 7.5v15L22.5 15z" fill="#fd2d5c" />
+                    <path id="pauseIcon" d="M9 22.5h4.5v-15H9v15zm7.5-15v15H21v-15h-4.5z" fill="#fd2d5c"
+                        style="display: none;" />
+                </svg>
+                <div id="progressBarContainer">
+                    <div id="progressBar"></div>
+                </div>
+            </div>
+
+            <audio id="audioPlayer">
+                <source src="../assets/music/Geebar - 那天的雪.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
     </div>
+
+
+    <script src="../assets/js/music-controller.js"></script>
 
     <script>
         const lyrics = [
-            { text: "那天的雪——Geebar", time: 0 },
+            { text: "那天的雪—Geebar", time: 0 },
             { text: "已经没别的话语", time: 26 },
             { text: "BGM循环播放", time: 27 },
             { text: "天空偷吃的伴侣", time: 28.5 },
@@ -182,10 +193,9 @@
             { text: "所以能否回答我", time: 171.5 },
             { text: "这片美丽的枷锁", time: 173 },
             { text: "难道也是惩罚我", time: 174.8 },
-            { text: "那天的雪", time: 178 }
+            { text: "", time: 184 },
         ];
 
-        const audioPlayer = document.getElementById('audioPlayer');
         const contentElement = document.getElementById('content');
         let currentLyricIndex = 0;
         let index = 0;
@@ -212,7 +222,12 @@
             if (index < text.length) {
                 contentElement.textContent += text[index];
                 index++;
-                setTimeout(() => addNextCharacter(text), (lyrics[currentLyricIndex + 1].time - audioPlayer.currentTime) / text.length * 100);
+                if (currentLyricIndex === lyrics.length - 1) {
+                    setTimeout(() => addNextCharacter(text), 130);
+                } else {
+                    setTimeout(() => addNextCharacter(text), (lyrics[currentLyricIndex + 1].time - audioPlayer.currentTime) / text.length * 100);
+                    console.log((lyrics[currentLyricIndex + 1].time - audioPlayer.currentTime) / text.length * 100)
+                }
             }
         }
 
@@ -278,10 +293,10 @@
             if (snowAnimation) {
                 cancelAnimationFrame(snowAnimation);
             }
-            const snowflakes = document.querySelectorAll('.snowflake');
-            snowflakes.forEach(snowflake => {
-                snowflake.getAnimations().forEach(animation => animation.finish());
-            });
+            // const snowflakes = document.querySelectorAll('.snowflake');
+            // snowflakes.forEach(snowflake => {
+            //     snowflake.getAnimations().forEach(animation => animation.finish());
+            // });
         });
 
         audioPlayer.addEventListener('seeked', () => {
@@ -290,6 +305,24 @@
             contentElement.textContent = "";
             index = 0;
             updateLyrics();
+        });
+
+        let mouseMoveTimeout;
+        let displayAudio = true;
+
+        document.addEventListener('mousemove', () => {
+            clearTimeout(mouseMoveTimeout);
+            document.querySelector('.audioBox').style.transform = 'translate(-50%, -50%)'; // 恢复位置
+            document.querySelector('.audioBox').style.opacity = 1;
+            document.body.style.cursor = 'auto';
+            displayAudio = true;
+
+            mouseMoveTimeout = setTimeout(() => {
+                document.querySelector('.audioBox').style.transform = 'translate(-50%, 100%)'; // 向下移出屏幕
+                document.querySelector('.audioBox').style.opacity = 0;
+                document.body.style.cursor = 'none';
+                displayAudio = false;
+            }, 5000);
         });
     </script>
 </body>
