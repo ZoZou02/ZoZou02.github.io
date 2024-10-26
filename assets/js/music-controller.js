@@ -71,3 +71,29 @@ function endDrag(event) {
         audioPlayer.currentTime = percent * audioPlayer.duration;
     }
 }
+
+const volumeIcon = document.getElementById('volumeIcon');
+const volumeControlContainer = document.getElementById('volumeControlContainer');
+
+volumeIcon.addEventListener('click', () => {
+    if (volumeControlContainer.style.transform === 'translate(236px, -34px)') {
+        volumeControlContainer.style.transform = 'translate(310px, -34px)';
+    } else {
+        volumeControlContainer.style.transform ='translate(236px, -34px)';
+    }
+});
+
+const volumeControl = document.getElementById('volumeControl');
+volumeControl.addEventListener('input', () => {
+    audioPlayer.volume = volumeControl.value;
+    setTimeout(() => {
+        volumeControlContainer.style.transform = 'translate(236px, -34px)';
+    }, 2000);
+});
+
+document.addEventListener('click', (event) => {
+    const isClickInside = volumeControlContainer.contains(event.target) || volumeIcon.contains(event.target);
+    if (!isClickInside) {
+        volumeControlContainer.style.transform = 'translate(236px, -34px)';
+    }
+});

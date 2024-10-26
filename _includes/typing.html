@@ -58,8 +58,8 @@
 
         .audioBox {
             position: absolute;
-            bottom: 30px;
-            left: 50%;
+            bottom: 200px;
+            left: 39%;
             transform: translate(-50%, -50%);
             transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
             opacity: 1;
@@ -83,6 +83,11 @@
             opacity: 0.8;
             pointer-events: none;
         }
+
+        #volumeIcon {
+            position: relative;
+            left: 216px;
+        }
     </style>
 </head>
 
@@ -103,8 +108,16 @@
                 <div id="progressBarContainer">
                     <div id="progressBar"></div>
                 </div>
+                <svg id="volumeIcon" width="40" height="48" viewBox="0 0 24 24">
+                    <path d="M13 5v14l-5-4H3V9h5z" fill="#fd2d5c" />
+                    <path stroke-linecap="round" d="M13 14c1.5-1 1.5-3 0-4" fill="#fd2d5c" />
+                </svg>
+        
             </div>
-
+            <div id="volumeControlContainer" style="transform: translate(236px, -34px)">
+                <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+            </div>
+        
             <audio id="audioPlayer">
                 <source src="../assets/music/Geebar - 那天的雪.mp3" type="audio/mp3">
             </audio>
@@ -292,10 +305,6 @@
             if (snowAnimation) {
                 cancelAnimationFrame(snowAnimation);
             }
-            // const snowflakes = document.querySelectorAll('.snowflake');
-            // snowflakes.forEach(snowflake => {
-            //     snowflake.getAnimations().forEach(animation => animation.finish());
-            // });
         });
 
         audioPlayer.addEventListener('seeked', () => {
@@ -311,18 +320,19 @@
 
         document.addEventListener('mousemove', () => {
             clearTimeout(mouseMoveTimeout);
-            document.querySelector('.audioBox').style.transform = 'translate(-50%, -50%)'; // 恢复位置
+            document.querySelector('.audioBox').style.transform = 'translate(-50%, -50%)';
             document.querySelector('.audioBox').style.opacity = 1;
             document.body.style.cursor = 'auto';
             displayAudio = true;
 
             mouseMoveTimeout = setTimeout(() => {
-                document.querySelector('.audioBox').style.transform = 'translate(-50%, 50%)'; // 向下移出屏幕
+                document.querySelector('.audioBox').style.transform = 'translate(-50%, 50%)';
                 document.querySelector('.audioBox').style.opacity = 0;
                 document.body.style.cursor = 'none';
                 displayAudio = false;
             }, 5000);
         });
+
     </script>
 </body>
 

@@ -1,8 +1,13 @@
 path {
-  filter: drop-shadow(0px 1px 3px rgba(107, 107, 107, 0.5));
+  filter: drop-shadow(0px 1px 1px rgba(107, 107, 107, 0.5));
 }
 
 #audioPlayerContainer {
+  width: 400px;
+  height: 50px;
+}
+
+#audioPlayerControl{
   min-width: 300px;
   position: relative;
   background-color: #fff;
@@ -10,17 +15,18 @@ path {
   width: 300px;
   height: 50px;
   box-shadow: 0 0px 20px 0px rgba(107, 107, 107, 0.5);
+  z-index: 1000;
 }
-
 #progressBarContainer {
   position: absolute;
   top: 45%;
   left: 15%;
-  width: 75%;
+  width: 70%;
   height: 5px;
   background: linear-gradient(to right, #fd2d5c var(--progress, 0%), #ddd var(--progress, 0%));
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 #progressBarContainer::before {
@@ -58,4 +64,53 @@ path {
 
 #progressBarContainer:hover #progressBar::after {
   opacity: 1;
+}
+
+#volumeIcon {
+  position: relative;
+  left: 216px;
+}
+
+#volumeControlContainer {
+  position: absolute;
+  transition: transform 0.5s ease-in-out; /* 添加过渡效果 */
+  z-index: 0;
+}
+
+#volumeControl {
+  width: 50px;
+}
+
+/* 隐藏range控件默认样式 */
+[type="range"] {
+-webkit-appearance: none;
+appearance: none;
+margin: 0;
+outline: 0;
+background-color: transparent;
+width: 500px;
+}
+
+/* 定义range控件轨道的样式 */
+[type="range"]::-webkit-slider-runnable-track {
+height: 5px;
+border-radius: 5px;
+background: #ffffff;
+}
+
+/* 定义range控件容器的样式 */
+[type="range" i]::-webkit-slider-container {
+height: 20px;
+overflow: hidden;
+}
+
+/* 定义range控件拇指的样式 */
+[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background-color: #fd2d5c;
+margin-top: -5px;
 }
