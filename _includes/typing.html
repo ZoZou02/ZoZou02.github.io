@@ -42,7 +42,7 @@
 
 
         #content {
-            font-size: 48px !important;
+            font-size: 32px !important;
             letter-spacing: 10px !important;
             color: #fff !important;
             text-shadow: 0 0 10px #5a5a5a, 0 0 10px #333333 !important;
@@ -59,7 +59,7 @@
         .audioBox {
             position: absolute;
             bottom: 200px;
-            left: 89%;
+            left: 43%;
             transform: translate(-50%, -50%);
             transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
             opacity: 1;
@@ -87,6 +87,15 @@
         #volumeIcon {
             position: relative;
             left: 216px;
+        }
+
+        @media (max-width: 768px) {
+            .audioBox {
+                bottom: 100px; /* 在手机上调整底部位置 */
+                left: 50%; /* 居中对齐 */
+                transform: translate(-50%, -50%); /* 保持居中 */
+                width: 90%; /* 设置宽度为90% */
+            }
         }
     </style>
 </head>
