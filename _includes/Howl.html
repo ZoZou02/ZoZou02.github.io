@@ -1,197 +1,94 @@
-<div class="cards">
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/warchief_thrall.jpg" />
-            <div class="reflection"
-                style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/warchief_thrall.jpg)"></div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/king_magni_bronzebeard.jpg" />
-            <div class="reflection"
-                style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/king_magni_bronzebeard.jpg)"></div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/lady_jaina_proudmoore.jpg" />
-            <div class="reflection"
-                style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/lady_jaina_proudmoore.jpg)"></div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/the_lich_king.jpg" />
-            <div class="reflection" style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/the_lich_king.jpg)">
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/spectral_tiger.jpg" />
-            <div class="reflection" style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/spectral_tiger.jpg)">
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/sulfuras_hand_of_ragnaros.jpg" />
-            <div class="reflection"
-                style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/sulfuras_hand_of_ragnaros.jpg)"></div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="image"><img src="https://wow.tcgbrowser.com/images/cards/hd/deathwing_the_destroyer.jpg" />
-            <div class="reflection"
-                style="--image: url(https://wow.tcgbrowser.com/images/cards/hd/deathwing_the_destroyer.jpg)"></div>
-        </div>
-    </div>
-</div>
+<svg width="0" height="0">
+    <filter id="sliced" color-interpolation-filters="sRGB">
+        <feColorMatrix values="0 0 0 0 .93 
+                                0 0 0 0 .93 
+                                                      0 0 0 0 .93
+                                                      1 0 1 0 -1"></feColorMatrix>
+        <feOffset dx="-16" dy="-2" result="topstrip"></feOffset>
+        <feColorMatrix in="SourceGraphic" values="0 0 0 0 .93 
+                                0 0 0 0 .93 
+                                                      0 0 0 0 .93
+                                                      0 1 1 0 -1"></feColorMatrix>
+        <feOffset dx="16" dy="2"></feOffset>
+        <feBlend in="topstrip"></feBlend>
+        <feDropShadow stdDeviation="5"></feDropShadow>
+        <feDropShadow stdDeviation="7" result="outstrip"></feDropShadow>
+        <feColorMatrix in="SourceGraphic" values=" 0  0 0 0 .945 
+                                 0  0 0 0 .965 
+                                                       0  0 0 0 .4 
+                                                      -1 -1 1 0 0"></feColorMatrix>
+        <feBlend in="outstrip"></feBlend>
+    </filter>
+    <filter id="noisey">
+        <feTurbulence type="fractalNoise" baseFrequency="3.17"></feTurbulence>
+        <feComponentTransfer>
+            <feFuncA type="table" tableValues="0 .3"></feFuncA>
+        </feComponentTransfer>
+        <feComposite in="SourceGraphic" operator="out"></feComposite>
+    </filter>
+</svg>
+<div contenteditable="true">geebar</div>
 
 <style>
-    html {
-        background-color: #000;
-    }
+    @charset "UTF-8";
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap");
 
     html,
     body {
-        height: 100%;
-        max-height: 100%;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        display: grid;
+        overflow: hidden;
+    }
+
+    html {
+        min-height: 100%;
+        background: #121212;
+    }
+
+    html::before {
+        grid-area: 1/1;
+        background: #0001;
+        backdrop-filter: url(#noisey);
+        content: "";
     }
 
     body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        grid-area: 1/1;
     }
 
-    .cards {
-        --item-width: 250px;
-        list-style: none;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
+    svg[width="0"][height="0"] {
+        position: fixed;
+    }
+
+    div {
         position: relative;
-        margin: 0;
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-        padding: 0;
+        place-self: center;
+        padding: 0 0.125em;
+        color: #00f;
+        font: italic 900 clamp(2em, 21.5vw, 25em) montserrat, sans-serif;
+        overflow-wrap: anywhere;
+        text-align: center;
+        text-transform: uppercase;
+        isolation: isolate;
+        filter: url(#sliced) url(#noisey) hue-rotate(calc(var(--hov, 0)*120deg));
+        transition: filter 0.3s;
     }
 
-    .cards .card:first-of-type {
-        margin-left: calc(50% - (var(--item-width) / 2));
-    }
-
-    .cards .card:last-of-type {
-        margin-right: calc(50% - (var(--item-width) / 2));
-    }
-
-    .card {
-        view-timeline-name: --item-visible;
-        view-timeline-axis: inline;
-
-        animation: linear adjust-z-index both;
-        animation-timeline: --item-visible;
-        transform: translate3d(0, 0, 0);
-
-        flex: 0 0 auto;
-        perspective: 1000px;
-        position: relative;
-        z-index: 1;
-        will-change: z-index;
-        display: block;
-        scroll-snap-align: center;
-        text-decoration: none;
-
-    }
-
-    .card>.image {
-        position: relative;
-        display: block;
-        animation: linear rotate both;
-        animation-timeline: --item-visible;
-        will-change: transform;
-        width: var(--item-width);
-        aspect-ratio: 250 / 350;
-
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-        -webkit-transform: translate3d(-50%, 0, 0) rotate3d(0, 1, 0, -45deg) scale(0.5);
-        transform: translate3d(-50%, 0, 0) rotate3d(0, 1, 0, -45deg) scale(0.5);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-
-    .image>img {
-        display: block;
-        border-radius: 1rem;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .image .reflection {
+    div::after {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 100%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: linear-gradient(rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0.5)),
-            var(--image);
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 1rem;
-        transform: scaleY(-1) translateY(-0.5em);
-        opacity: 0.5;
+        inset: 0;
+        background: linear-gradient(-4deg, #0000 calc(58.5% + -.5px), #f00 calc(58.5% + .5px)), linear-gradient(-2.5deg, #0f0 calc(31% + -.5px), #000 calc(31% + .5px));
+        background-size: 100% 1lh;
+        mix-blend-mode: lighten;
+        pointer-events: none;
+        content: "";
     }
 
-    @keyframes adjust-z-index {
-        0% {
-            z-index: 1;
-        }
-
-        50% {
-            z-index: 100;
-        }
-
-        100% {
-            z-index: 1;
-        }
+    div:focus {
+        outline: none;
     }
 
-    @keyframes rotate {
-        0% {
-            -webkit-transform: translate3d(-50%, 0, 0) rotate3d(0, 1, 0, -45deg) scale(0.5);
-            transform: translate3d(-50%, 0, 0) rotate3d(0, 1, 0, -45deg) scale(0.5);
-            opacity: 0.25;
-        }
-
-        35% {
-            -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, -40deg) scale(0.75);
-            transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, -40deg) scale(0.75);
-        }
-
-        50% {
-            -webkit-transform: translate3d(0, 0, 1em) rotate3d(0, 1, 0, 0) scale(1);
-            transform: translate3d(0, 0, 1em) rotate3d(0, 1, 0, 0) scale(1);
-            opacity: 1;
-        }
-
-        65% {
-            -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, 40deg) scale(0.75);
-            transform: translate3d(0, 0, 0) rotate3d(0, 1, 0, 40deg) scale(0.75);
-        }
-
-        100% {
-            -webkit-transform: translate3d(50%, 0, 0) rotate3d(0, 1, 0, 45deg) scale(0.5);
-            transform: translate3d(50%, 0, 0) rotate3d(0, 1, 0, 45deg) scale(0.5);
-            opacity: 0.25;
-        }
+    div:hover,
+    div:focus {
+        --hov: 1;
     }
 </style>
