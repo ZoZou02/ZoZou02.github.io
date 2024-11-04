@@ -41,6 +41,7 @@ pin: true
 
 - 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
 - 🥁[太鼓达人 Taiko web](https://cjdgrevival.com/)
+- ⛳[在线js小游戏 DAN-BALL](https://dan-ball.jp/en/)
 
 ## 5. 🎨资源素材
 
@@ -48,5 +49,7 @@ pin: true
 - 🖌️[PS免费笔刷](https://myphotoshopbrushes.com/)
 - 😀[emoji大全1](https://emoji6.com/emojiall/)
 - 😁[emoji大全2](https://www.emojiall.com/)
+- 🎞[影视截图screencap](https://screenmusings.org/)
+- 🎼[影视BGM](https://www.tunefind.com/)
 
 ## 6. 🕸其他
