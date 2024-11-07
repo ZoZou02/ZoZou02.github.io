@@ -26,7 +26,7 @@ pin: true
 - 🔣[latex公式编辑器](https://www.latexlive.com/)
 - 🎛[miku工具集](https://tools.miku.ac/)
 - 🎡[各种转换器aconvert](https://www.aconvert.com/cn/)
-- [🌲在线白噪音](https://asoftmurmur.com/)
+- 🖼[SVG在线编辑器](https://www.jyshare.com/more/svgeditor/)
 
 ## 2. 💻编程相关
 - 🔥[freecodecamp](https://www.freecodecamp.org/learn/)
@@ -42,6 +42,7 @@ pin: true
 - 🦑[超鱿型的穿搭 SplacoordMaker](https://splacoordmaker.app/)
 - 🥁[太鼓达人 Taiko web](https://cjdgrevival.com/)
 - ⛳[在线js小游戏 DAN-BALL](https://dan-ball.jp/en/)
+- [🌲在线白噪音](https://asoftmurmur.com/)
 
 ## 5. 🎨资源素材
 
