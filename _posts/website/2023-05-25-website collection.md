@@ -35,7 +35,7 @@ pin: true
 ## 3. 🐱Github相关
 
 - ✨[github贡献生成](https://github-contributions.vercel.app/)
-- 📌[badges制作](https://shields.io/)[https://img.shields.io/badge/any_text-you_like-blue](https://img.shields.io/badge/any_text-you_like-blue)
+- 📌[badges制作](https://shields.io/)
 
 ## 4. 🎮娱乐类
 
