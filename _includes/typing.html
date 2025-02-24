@@ -39,8 +39,6 @@
             transition: transform 0.3s ease;
         }
 
-
-
         #content {
             font-size: 32px !important;
             letter-spacing: 10px !important;
@@ -49,6 +47,18 @@
             font-family: 'JetBrains Mono', monospace, 'Microsoft Yahei', 'Droid Sans Fallback' !important;
             transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out !important;
             font-weight: bold !important;
+        }
+
+        /* 添加选中文本的样式 */
+        ::selection {
+            background-color: #fd2d5c;
+            color: #fff;
+        }
+        
+        /* 兼容Firefox浏览器 */
+        ::-moz-selection {
+            background-color: #fd2d5c;
+            color: #fff;
         }
 
         #content:hover {
