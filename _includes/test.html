@@ -28,7 +28,7 @@
             padding: 8px;
             font-size: small;
         }
-        #btn-area {
+       #btn-area {
             height: 100px;
         }
         button {
@@ -39,8 +39,8 @@
             background-color: #009DDC;
             color: white;
         }
-    </style>
-<script type="text/javascript" src="https://apis.map.qq.com/tools/geolocation/min?key=your key&referer=myapp"></script>
+</style>
+<script type="text/javascript" src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
 </head>
 <body>
     <div id="pos-area">
@@ -48,24 +48,18 @@
     </div>
  
     <div id="btn-area">
-        <button onClick="getCurLocation()">获取精确定位信息</button>
+        <button onClick="geolocation.getLocation(showPosition, showErr, options)">获取精确定位信息</button>
         <button onClick="geolocation.getIpLocation(showPosition, showErr)">获取粗糙定位信息</button>
         <button onClick="showWatchPosition()">开始监听位置</button>
         <button onClick="showClearWatch()">停止监听位置</button>
     </div>
- 
     <script type="text/JavaScript">
-        var geolocation = new qq.maps.Geolocation();
- 
+        var geolocation = new qq.maps.Geolocation("MQLBZ-BI73U-BG3VJ-GKB55-SSEH6-NPBPW", "flow");
  
         document.getElementById("pos-area").style.height = (document.body.clientHeight - 110) + 'px';
  
-        var options = {timeout: 9000};
         var positionNum = 0;
- 
-        function getCurLocation() {
-            geolocation.getLocation(showPosition, showErr, options);
-        }
+        var options = {timeout: 8000};
         function showPosition(position) {
             positionNum ++;
             document.getElementById("demo").innerHTML += "序号：" + positionNum;
