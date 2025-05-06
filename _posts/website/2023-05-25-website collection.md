@@ -43,6 +43,7 @@ pin: true
 - 🥁[太鼓达人 Taiko web](https://cjdgrevival.com/)
 - ⛳[在线js小游戏 DAN-BALL](https://dan-ball.jp/en/)
 - [🌲在线白噪音](https://asoftmurmur.com/)
+- 🔢[专注数字格子](https://concentrationgrids.com/)
 
 ## 5. 🎨资源素材
 
