@@ -1,0 +1,199 @@
+<div class="title">外部链接</div>
+
+<div class="cardlist" id="external-links-list">
+    <!-- GitHub -->
+    <div class="main" id="item">
+        <a href="https://github.com/ZoZou02" target="_blank" class="element">
+            <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/github-logo.png');border-radius: 4%;
+        background-size: cover;">
+                <div class="link-title">GitHub</div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- Twitter/X -->
+    <div class="main" id="item">
+        <a href="https://x.com/zozou_02" target="_blank" class="element">
+            <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/twitter-logo.png');border-radius: 4%;
+        background-size: cover;">
+                <div class="link-title">Twitter/X</div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- 示例网站1 -->
+    <div class="main" id="item">
+        <a href="https://example.com" target="_blank" class="element">
+            <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon.png');border-radius: 4%;
+        background-size: cover;">
+                <div class="link-title">示例网站1</div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- 示例网站2 -->
+    <div class="main" id="item">
+        <a href="https://example.org" target="_blank" class="element">
+            <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon2.png');border-radius: 4%;
+        background-size: cover;">
+                <div class="link-title">示例网站2</div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- 示例网站3 -->
+    <div class="main" id="item">
+        <a href="https://example.net" target="_blank" class="element">
+            <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon3.png');border-radius: 4%;
+        background-size: cover;">
+                <div class="link-title">示例网站3</div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- 示例网站4 -->
+    <div class="main" id="item">
+        <a href="https://example.co" target="_blank" class="element">
+            <div class="shine-card" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon4.png');border-radius: 4%;
+        background-size: cover;">
+                <div class="link-title">示例网站4</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script>
+    /* 卡片动画 */
+    const multiple = 10;
+    function transformElement(container, x, y) {
+        const element = container.querySelector(".element");
+        const imgElement = container.querySelector(".shine-card");
+
+        let box = element.getBoundingClientRect();
+        let calcX = (y - box.y - (box.height / 2)) / multiple;
+        let calcY = -(x - box.x - (box.width / 2)) / multiple;
+        const percentage = parseInt((x - box.x) / box.width * 1000) / 10;
+
+        element.style.transform = "rotateX(" + calcX + "deg) "
+            + "rotateY(" + calcY + "deg)";
+        imgElement.style.setProperty('--per', `${percentage}%`);
+    }
+
+    document.querySelectorAll(".main").forEach(container => {
+        container.addEventListener('mousemove', (e) => {
+            window.requestAnimationFrame(() => transformElement(container, e.clientX, e.clientY));
+        });
+
+        container.addEventListener('mouseleave', () => {
+            const element = container.querySelector(".element");
+            const imgElement = container.querySelector(".shine-card");
+
+            window.requestAnimationFrame(() => {
+                element.style.transform = "rotateX(0) rotateY(0)";
+                imgElement.style.setProperty('--per', `30%`);
+            });
+        });
+    });
+</script>
+
+<style>
+    .title {
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Arial', sans-serif;
+    }
+
+
+    .cardlist {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+
+    .element {
+        margin: auto;
+        width: 270px;
+        height: 180px;
+        border-radius: 10px;
+        transform-style: preserve-3d;
+        transition: all .1s;
+    }
+
+    .main {
+        margin-top: 30px;
+        width: 270px;
+        height: 180px;
+        margin-left: 15px;
+        margin-right: 15px;
+        transform-style: preserve-3d;
+        perspective: 500px;
+    }
+
+    .shine-card {
+        --per: 30%;
+        box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 4%;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        &::after {
+            content: "";
+            display: none;
+            position: absolute;
+            inset: 0;
+            border-radius: 4%;
+            background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+            mix-blend-mode: color-dodge;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 4%;
+
+            background: linear-gradient(115deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.4) var(--per),
+                    rgba(0, 0, 0, .6) calc(var(--per) + 25%),
+                    rgba(255, 255, 255, .3) calc(var(--per) + 50%),
+                    transparent 100%);
+            mix-blend-mode: color-dodge;
+        }
+
+        &:hover::after,
+        &:hover::before {
+            display: block;
+        }
+
+    }
+    
+    .link-title {
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2em;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 8px 16px;
+        border-radius: 0 0 4% 4%;
+        width: 100%;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+    
+    a {
+        text-decoration: none;
+    }
+</style>
