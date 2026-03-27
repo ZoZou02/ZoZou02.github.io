@@ -1,0 +1,8 @@
+# _data/locales/zh.yml
+tabs:
+  home: 首页
+  categories: 分类
+  tags: 标签
+  archives: 归档
+  about: 关于
+  links: 外部链接
