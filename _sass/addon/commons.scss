@@ -873,18 +873,6 @@ $btn-mb: 0.5rem;
       margin-bottom: $btn-mb;
     }
   } /* .sidebar-bottom */
-
-  /* 调整导航顺序：将项目小站放在第一位 */
-  ul {
-    display: flex;
-    flex-direction: column;
-
-    li.nav-item {
-      &[href="/links/"] {
-        order: -1;
-      }
-    }
-  }
 } /* #sidebar */
 
 @media (hover: hover) {
