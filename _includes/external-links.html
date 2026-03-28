@@ -1,7 +1,10 @@
 <div class="cardlist" id="external-links-list">
     <!-- GitHub -->
-    <article class="card-wrapper card">
+    <article class="card-wrapper card link-card" style="--bg-color: #24292e; --text-color: #ffffff;">
         <a href="https://github.com/ZoZou02" target="_blank" class="link-preview">
+            <div class="card-background">
+                <span class="card-bg-title">GitHub</span>
+            </div>
             <div class="card-body">
                 <h2 class="card-title">GitHub</h2>
                 <p class="card-text">我的代码仓库</p>
@@ -10,8 +13,11 @@
     </article>
     
     <!-- Twitter/X -->
-    <article class="card-wrapper card">
+    <article class="card-wrapper card link-card" style="--bg-color: #1da1f2; --text-color: #ffffff;">
         <a href="https://x.com/zozou_02" target="_blank" class="link-preview">
+            <div class="card-background">
+                <span class="card-bg-title">X</span>
+            </div>
             <div class="card-body">
                 <h2 class="card-title">Twitter/X</h2>
                 <p class="card-text">我的社交媒体</p>
@@ -20,8 +26,11 @@
     </article>
     
     <!-- 示例网站1 -->
-    <article class="card-wrapper card">
+    <article class="card-wrapper card link-card" style="--bg-color: #4caf50; --text-color: #ffffff;">
         <a href="https://example.com" target="_blank" class="link-preview">
+            <div class="card-background">
+                <span class="card-bg-title">Web</span>
+            </div>
             <div class="card-body">
                 <h2 class="card-title">示例网站1</h2>
                 <p class="card-text">示例网站描述</p>
@@ -30,8 +39,11 @@
     </article>
     
     <!-- 示例网站2 -->
-    <article class="card-wrapper card">
+    <article class="card-wrapper card link-card" style="--bg-color: #ff9800; --text-color: #ffffff;">
         <a href="https://example.org" target="_blank" class="link-preview">
+            <div class="card-background">
+                <span class="card-bg-title">Site</span>
+            </div>
             <div class="card-body">
                 <h2 class="card-title">示例网站2</h2>
                 <p class="card-text">示例网站描述</p>
@@ -40,8 +52,11 @@
     </article>
     
     <!-- 示例网站3 -->
-    <article class="card-wrapper card">
+    <article class="card-wrapper card link-card" style="--bg-color: #9c27b0; --text-color: #ffffff;">
         <a href="https://example.net" target="_blank" class="link-preview">
+            <div class="card-background">
+                <span class="card-bg-title">Demo</span>
+            </div>
             <div class="card-body">
                 <h2 class="card-title">示例网站3</h2>
                 <p class="card-text">示例网站描述</p>
@@ -50,8 +65,11 @@
     </article>
     
     <!-- 示例网站4 -->
-    <article class="card-wrapper card">
+    <article class="card-wrapper card link-card" style="--bg-color: #3f51b5; --text-color: #ffffff;">
         <a href="https://example.co" target="_blank" class="link-preview">
+            <div class="card-background">
+                <span class="card-bg-title">App</span>
+            </div>
             <div class="card-body">
                 <h2 class="card-title">示例网站4</h2>
                 <p class="card-text">示例网站描述</p>
@@ -75,49 +93,74 @@
         margin-bottom: 2rem;
     }
 
-    .card {
+    .link-card {
+        position: relative;
+        overflow: hidden;
         border: 0;
-        background: var(--card-bg);
-        box-shadow: var(--card-shadow);
         border-radius: 0.75rem;
         transition: all 0.35s ease-in-out;
+        background: var(--bg-color, #f8f9fa);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .link-preview {
         display: block;
         text-decoration: none;
-        color: inherit;
-        padding: 1.5rem;
-        border-bottom: none !important;
+        color: var(--text-color, #333);
+        padding: 2rem 1.5rem;
+        position: relative;
+        z-index: 2;
+        height: 100%;
     }
 
     .link-preview:hover {
         text-decoration: none;
-        color: inherit;
-        border-bottom: none !important;
+        color: var(--text-color, #333);
     }
 
-    .card {
-        border-bottom: none !important;
+    .card-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg-color, #f8f9fa);
+        z-index: 1;
+        overflow: hidden;
     }
 
-    .card:hover {
+    .card-bg-title {
+        position: absolute;
+        top: 10%;
+        right: -10%;
+        font-size: 8rem;
+        font-weight: 900;
+        opacity: 0.1;
+        transform: rotate(15deg);
+        color: var(--text-color, #333);
+        z-index: 1;
+    }
+
+    .link-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        background: var(--card-hover-bg, rgba(0, 0, 0, 0.1));
-        border-bottom: none !important;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-body {
+        position: relative;
+        z-index: 2;
     }
 
     .card-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--text-color);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--text-color, #333);
     }
 
     .card-text {
         font-size: 0.9rem;
-        color: var(--text-muted-color);
+        color: rgba(255, 255, 255, 0.8);
         margin-bottom: 0;
     }
 
@@ -125,6 +168,10 @@
         .card-wrapper {
             width: 100%;
             max-width: 400px;
+        }
+        
+        .card-bg-title {
+            font-size: 6rem;
         }
     }
 </style>
