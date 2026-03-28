@@ -1,138 +1,122 @@
 <div class="cardlist" id="external-links-list">
     <!-- GitHub -->
-    <div class="link-card">
-        <a href="https://github.com/ZoZou02" target="_blank">
-            <div class="card-content" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/github-logo.png');">
-                <div class="link-title">GitHub</div>
+    <article class="card-wrapper card">
+        <a href="https://github.com/ZoZou02" target="_blank" class="link-preview">
+            <div class="card-body">
+                <h2 class="card-title">GitHub</h2>
+                <p class="card-text">我的代码仓库</p>
             </div>
         </a>
-    </div>
+    </article>
     
     <!-- Twitter/X -->
-    <div class="link-card">
-        <a href="https://x.com/zozou_02" target="_blank">
-            <div class="card-content" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/twitter-logo.png');">
-                <div class="link-title">Twitter/X</div>
+    <article class="card-wrapper card">
+        <a href="https://x.com/zozou_02" target="_blank" class="link-preview">
+            <div class="card-body">
+                <h2 class="card-title">Twitter/X</h2>
+                <p class="card-text">我的社交媒体</p>
             </div>
         </a>
-    </div>
+    </article>
     
     <!-- 示例网站1 -->
-    <div class="link-card">
-        <a href="https://example.com" target="_blank">
-            <div class="card-content" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon.png');">
-                <div class="link-title">示例网站1</div>
+    <article class="card-wrapper card">
+        <a href="https://example.com" target="_blank" class="link-preview">
+            <div class="card-body">
+                <h2 class="card-title">示例网站1</h2>
+                <p class="card-text">示例网站描述</p>
             </div>
         </a>
-    </div>
+    </article>
     
     <!-- 示例网站2 -->
-    <div class="link-card">
-        <a href="https://example.org" target="_blank">
-            <div class="card-content" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon2.png');">
-                <div class="link-title">示例网站2</div>
+    <article class="card-wrapper card">
+        <a href="https://example.org" target="_blank" class="link-preview">
+            <div class="card-body">
+                <h2 class="card-title">示例网站2</h2>
+                <p class="card-text">示例网站描述</p>
             </div>
         </a>
-    </div>
+    </article>
     
     <!-- 示例网站3 -->
-    <div class="link-card">
-        <a href="https://example.net" target="_blank">
-            <div class="card-content" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon3.png');">
-                <div class="link-title">示例网站3</div>
+    <article class="card-wrapper card">
+        <a href="https://example.net" target="_blank" class="link-preview">
+            <div class="card-body">
+                <h2 class="card-title">示例网站3</h2>
+                <p class="card-text">示例网站描述</p>
             </div>
         </a>
-    </div>
+    </article>
     
     <!-- 示例网站4 -->
-    <div class="link-card">
-        <a href="https://example.co" target="_blank">
-            <div class="card-content" style="background-image: url('https://cdn.jsdelivr.net/gh/ZoZou02/zozou-pic/website-icon4.png');">
-                <div class="link-title">示例网站4</div>
+    <article class="card-wrapper card">
+        <a href="https://example.co" target="_blank" class="link-preview">
+            <div class="card-body">
+                <h2 class="card-title">示例网站4</h2>
+                <p class="card-text">示例网站描述</p>
             </div>
         </a>
-    </div>
+    </article>
 </div>
 
 <style>
-    .title {
-        font-size: 2em;
-        font-weight: bold;
-        text-align: center;
-        margin: 20px 0;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-family: 'Arial', sans-serif;
-    }
-
     .cardlist {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
+        margin-top: 2rem;
     }
 
-    .link-card {
-        width: 270px;
-        height: 180px;
-        margin: 10px;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
+    .card-wrapper {
+        width: 300px;
+        margin-bottom: 2rem;
     }
 
-    .link-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    .card {
+        border: 0;
+        background: var(--card-bg);
+        box-shadow: var(--card-shadow);
+        border-radius: 0.75rem;
+        transition: all 0.35s ease-in-out;
     }
 
-    .card-content {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        position: relative;
-        transition: all 0.3s ease;
-    }
-
-    .card-content::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%);
-        transition: all 0.3s ease;
-    }
-
-    .link-card:hover .card-content {
-        transform: scale(1.05);
-    }
-
-    .link-card .link-title {
-        position: relative;
-        z-index: 1;
-        color: white;
-        font-weight: bold;
-        font-size: 1.2em;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 10px;
-        border-radius: 0 0 10px 10px;
-        width: 100%;
-        text-align: center;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    }
-
-    .link-card a {
-        text-decoration: none;
+    .link-preview {
         display: block;
-        width: 100%;
-        height: 100%;
+        text-decoration: none;
+        color: inherit;
+        padding: 1.5rem;
+    }
+
+    .link-preview:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        color: var(--text-muted-color);
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+        .card-wrapper {
+            width: 100%;
+            max-width: 400px;
+        }
     }
 </style>
