@@ -92,41 +92,26 @@
         color: var(--text-color, #333);
     }
 
-    .link-card {
-        position: relative;
-        overflow: hidden;
-        border: 0;
-        border-radius: 0.75rem;
-        transition: all 0.35s ease-in-out;
-        background: var(--bg-color, #f8f9fa);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
     .card-background {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        background: var(--bg-color, #f8f9fa);
         z-index: 1;
         overflow: hidden;
     }
 
     .card-bg-title {
         position: absolute;
-        top: 10%;
-        left: -5%;
-        font-size: 8rem;
+        top: 0;
+        left: 0;
+        font-size: 10rem;
         font-weight: 900;
-        opacity: 0.15;
+        opacity: 0.3;
         color: var(--text-color, #333);
         z-index: 1;
-        filter: blur(1px);
-        -webkit-filter: blur(1px);
     }
 
     .link-card:hover {
