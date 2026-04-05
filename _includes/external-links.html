@@ -92,19 +92,6 @@
         color: var(--text-color, #333);
     }
 
-    .card-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        z-index: 1;
-        overflow: hidden;
-    }
-    
     .link-card {
         position: relative;
         overflow: hidden;
@@ -116,15 +103,30 @@
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .card-bg-title {
+    .card-background {
         position: absolute;
         top: 0;
         left: 0;
-        font-size: 10rem;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .card-bg-title {
+        position: absolute;
+        top: 10%;
+        left: -5%;
+        font-size: 8rem;
         font-weight: 900;
-        opacity: 0.3;
+        opacity: 0.15;
         color: var(--text-color, #333);
         z-index: 1;
+        filter: blur(1px);
+        -webkit-filter: blur(1px);
     }
 
     .link-card:hover {
