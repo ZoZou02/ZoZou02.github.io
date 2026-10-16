@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"50f352d8da7efebd","x":-169,"y":-177,"width":250,"height":60,"color":"1","type":"text","text":"补货 Restock"},
+		{"id":"2772c6bf3861ea10","x":266,"y":-288,"width":250,"height":60,"type":"text","text":""}
+	],
+	"edges":[
+		{"id":"8e820d81943d0c38","fromNode":"50f352d8da7efebd","fromSide":"right","toNode":"2772c6bf3861ea10","toSide":"left"}
+	]
+}
